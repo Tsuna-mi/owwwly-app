@@ -53,6 +53,12 @@ module.exports.initLocalVariables = function (app) {
  * Initialize application middleware
  */
 module.exports.initMiddleware = function (app) {
+  // Showing stack errors
+  app.set('showStackError', true);
+
+  // Enable jsonp
+  app.enable('jsonp callback');
+
   // Should be placed before express.static
   app.use(compress({
     filter: function (req, res) {
@@ -140,10 +146,10 @@ module.exports.initModulesConfiguration = function (app, db) {
 module.exports.initHelmetHeaders = function (app) {
   // Use helmet to secure Express headers
   var SIX_MONTHS = 15778476000;
-  app.use(helmet.frameguard());
+  app.use(helmet.xframe());
   app.use(helmet.xssFilter());
-  app.use(helmet.noSniff());
-  app.use(helmet.ieNoOpen());
+  app.use(helmet.nosniff());
+  app.use(helmet.ienoopen());
   app.use(helmet.hsts({
     maxAge: SIX_MONTHS,
     includeSubdomains: true,

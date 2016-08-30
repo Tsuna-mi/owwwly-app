@@ -7,7 +7,7 @@ stages:
   triggers:
   - type: commit
   jobs:
-  - name: meanjs-build
+  - name: owwwly-build
     type: builder
     artifact_dir: ./
     build_type: grunt
@@ -21,14 +21,14 @@ stages:
       curl -sSL https://get.rvm.io | bash -s stable --ruby --gems=sass
       # Start RVM
       source /home/pipeline/.rvm/scripts/rvm
-      # Build MEANJS
+      # Build OWWWLY
       npm install
       grunt build
 - name: Deploy
   inputs:
   - type: job
     stage: Build
-    job: meanjs-build
+    job: owwwly-build
   jobs:
   - name: Deploy
     type: deployer

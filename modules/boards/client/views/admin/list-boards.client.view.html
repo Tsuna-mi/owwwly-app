@@ -1,0 +1,26 @@
+﻿<section>
+  <div class="page-header">
+    <h1>
+      Boards
+      <a class="btn btn-primary pull-right" data-ui-sref="admin.boards.create">
+        <i class="glyphicon glyphicon-plus"></i>
+      </a>
+    </h1>
+  </div>
+  <div class="list-group">
+    <a data-ng-repeat="board in vm.boards" data-ui-sref="admin.boards.edit({boardId: board._id})" class="list-group-item">
+      <small class="list-group-item-text">
+        Posted on
+        <span data-ng-bind="board.created | date:'mediumDate'"></span>
+        by
+        <span ng-if="board.user" ng-bind="board.user.displayName"></span>
+        <span ng-if="!board.user">Deleted User</span>
+      </small>
+      <h4 class="list-group-item-heading" data-ng-bind="board.title"></h4>
+      <p class="list-group-item-text" data-ng-bind="board.content"></p>
+    </a>
+  </div>
+  <div class="alert alert-warning text-center" data-ng-if="boards.$resolved && !boards.length">
+    No boards yet, why don't you <a data-ui-sref="admin.boards.create">create one</a>?
+  </div>
+</section>

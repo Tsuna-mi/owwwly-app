@@ -1,7 +1,7 @@
 {
   "name": "owwwly-app",
   "description": "Owwwly an application to help you plan events.",
-  "homepage": "http://meanjs.org/",
+  "homepage": "",
   "license": "MIT",
   "dependencies": {
     "angular": "~1.5.0",

@@ -3,11 +3,11 @@
 var cfenv = require('cfenv'),
   appEnv = cfenv.getAppEnv();
 var cfMongoUrl = (function() {
-  if (appEnv.getService('mean-mongo')) {
-    var mongoCreds = appEnv.getService('mean-mongo').credentials;
+  if (appEnv.getService('owwwly-mongo')) {
+    var mongoCreds = appEnv.getService('owwwly-mongo').credentials;
     return mongoCreds.uri || mongoCreds.url;
   } else {
-    throw new Error('No service names "mean-mongo" bound to the application.');
+    throw new Error('No service names "owwwly-mongo" bound to the application.');
   }
 }());
 
@@ -33,43 +33,43 @@ module.exports = {
     options: {}
   },
   facebook: {
-    clientID: getCred('mean-facebook', 'id') || 'APP_ID',
-    clientSecret: getCred('mean-facebook', 'secret') || 'APP_SECRET',
+    clientID: getCred('owwwly-facebook', 'id') || 'APP_ID',
+    clientSecret: getCred('owwwly-facebook', 'secret') || 'APP_SECRET',
     callbackURL: '/api/auth/facebook/callback'
   },
   twitter: {
-    clientID: getCred('mean-twitter', 'key') || 'CONSUMER_KEY',
-    clientSecret: getCred('mean-twitter', 'secret') || 'CONSUMER_SECRET',
+    clientID: getCred('owwwly-twitter', 'key') || 'CONSUMER_KEY',
+    clientSecret: getCred('owwwly-twitter', 'secret') || 'CONSUMER_SECRET',
     callbackURL: '/api/auth/twitter/callback'
   },
   google: {
-    clientID: getCred('mean-google', 'id') || 'APP_ID',
-    clientSecret: getCred('mean-google', 'secret') || 'APP_SECRET',
+    clientID: getCred('owwwly-google', 'id') || 'APP_ID',
+    clientSecret: getCred('owwwly-google', 'secret') || 'APP_SECRET',
     callbackURL: '/api/auth/google/callback'
   },
   linkedin: {
-    clientID: getCred('mean-linkedin', 'id') || 'APP_ID',
-    clientSecret: getCred('mean-linkedin', 'secret') || 'APP_SECRET',
+    clientID: getCred('owwwly-linkedin', 'id') || 'APP_ID',
+    clientSecret: getCred('owwwly-linkedin', 'secret') || 'APP_SECRET',
     callbackURL: '/api/auth/linkedin/callback'
   },
   github: {
-    clientID: getCred('mean-github', 'id') || 'APP_ID',
-    clientSecret: getCred('mean-github', 'secret') || 'APP_SECRET',
+    clientID: getCred('owwwly-github', 'id') || 'APP_ID',
+    clientSecret: getCred('owwwly-github', 'secret') || 'APP_SECRET',
     callbackURL: '/api/auth/github/callback'
   },
   paypal: {
-    clientID: getCred('mean-paypal', 'id') || 'CLIENT_ID',
-    clientSecret: getCred('mean-paypal', 'secret') || 'CLIENT_SECRET',
+    clientID: getCred('owwwly-paypal', 'id') || 'CLIENT_ID',
+    clientSecret: getCred('owwwly-paypal', 'secret') || 'CLIENT_SECRET',
     callbackURL: '/api/auth/paypal/callback',
     sandbox: false
   },
   mailer: {
-    from: getCred('mean-mail', 'from') || 'MAILER_FROM',
+    from: getCred('owwwly-mail', 'from') || 'MAILER_FROM',
     options: {
-      service: getCred('mean-mail', 'service') || 'MAILER_SERVICE_PROVIDER',
+      service: getCred('owwwly-mail', 'service') || 'MAILER_SERVICE_PROVIDER',
       auth: {
-        user: getCred('mean-mail', 'username') || 'MAILER_EMAIL_ID',
-        pass: getCred('mean-mail', 'password') || 'MAILER_PASSWORD'
+        user: getCred('owwwly-mail', 'username') || 'MAILER_EMAIL_ID',
+        pass: getCred('owwwly-mail', 'password') || 'MAILER_PASSWORD'
       }
     }
   },
