@@ -1,14 +1,14 @@
 # Build:
-# docker build -t meanjs/mean -f Dockerfile-production .
+# docker build -t owwwly/owwwly -f Dockerfile-production .
 #
 # Run:
-# docker run -it meanjs/mean
+# docker run -it owwwly/owwwly
 #
 # Compose:
 # docker-compose -f docker-compose-production.yml up -d
 
 FROM ubuntu:latest
-MAINTAINER MEAN.JS
+MAINTAINER OWWWLY
 
 # Install Utilities
 RUN apt-get update -q && apt-get install -yqq aptitude git traceroute dnsutils tree tcpdump psmisc gcc make build-essential libfreetype6 libfontconfig libkrb5-dev curl sudo
@@ -21,28 +21,28 @@ RUN gem install sass
 RUN curl -sL https://deb.nodesource.com/setup_4.x | sudo -E bash -
 RUN sudo apt-get install -yq nodejs
 
-# Install MEAN.JS Prerequisites
+# Install OWWWLY Prerequisites
 RUN npm install --quiet -g grunt-cli gulp bower yo mocha karma-cli pm2
 
-RUN mkdir /opt/mean.js
-RUN mkdir -p /opt/mean.js/public/lib
-WORKDIR /opt/mean.js
+RUN mkdir /opt/owwwly.js
+RUN mkdir -p /opt/owwwly.js/public/lib
+WORKDIR /opt/owwwly.js
 
 # Copies the local package.json file to the container
 # and utilities docker container cache to not needing to rebuild
 # and install node_modules/ everytime we build the docker, but only
 # when the local package.json file changes.
 # Install npm packages
-ADD package.json /opt/mean.js/package.json
+ADD package.json /opt/owwwly.js/package.json
 RUN npm install --quiet --production
 
 # Install bower packages
-ADD bower.json /opt/mean.js/bower.json
-ADD .bowerrc /opt/mean.js/.bowerrc
+ADD bower.json /opt/owwwly.js/bower.json
+ADD .bowerrc /opt/owwwly.js/.bowerrc
 RUN bower install --quiet --allow-root --config.interactive=false
 
 # Share local directory on the docker container
-ADD . /opt/mean.js
+ADD . /opt/owwwly.js
 
 # Machine cleanup
 RUN npm cache clean
@@ -55,11 +55,11 @@ ENV NODE_ENV production
 EXPOSE 80:80
 EXPOSE 443:443
 
-# Port 3000 for MEAN.JS server
+# Port 3000 for OWWWLY server
 EXPOSE 3000:3000
 
 # Port 35729 for livereload
 EXPOSE 35729:35729
 
-# Run MEAN.JS server
+# Run OWWWLY server
 CMD ["npm","run-script","start:prod"]

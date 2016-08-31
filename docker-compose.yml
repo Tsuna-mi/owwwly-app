@@ -3,7 +3,7 @@ services:
   web:
     restart: always
     build: .
-    container_name: meanjs
+    container_name: owwwly
     ports:
      - "3000:3000"
      - "5858:5858"
@@ -19,10 +19,10 @@ services:
     build: .
     entrypoint: /bin/true
     volumes:
-     - ./:/opt/mean.js
-     - /opt/mean.js/node_modules
-     - /opt/mean.js/public
-     - /opt/mean.js/uploads
+     - ./:/opt/owwwly.js
+     - /opt/owwwly.js/node_modules
+     - /opt/owwwly.js/public
+     - /opt/owwwly.js/uploads
   db:
     image: mongo:3.2
     restart: always

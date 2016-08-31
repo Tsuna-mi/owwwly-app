@@ -5,7 +5,7 @@ services:
     build:
      context: .
      dockerfile: Dockerfile-production
-    container_name: meanjs
+    container_name: owwwly
     ports:
      - "8443:8443"
     environment:
@@ -21,10 +21,10 @@ services:
      dockerfile: Dockerfile-production
     entrypoint: /bin/true
     volumes:
-     - /opt/mean.js
-     - /opt/mean.js/node_modules
-     - /opt/mean.js/public
-     - /opt/mean.js/uploads
+     - /opt/owwwly.js
+     - /opt/owwwly.js/node_modules
+     - /opt/owwwly.js/public
+     - /opt/owwwly.js/uploads
   db:
     image: mongo:3.2
     restart: always

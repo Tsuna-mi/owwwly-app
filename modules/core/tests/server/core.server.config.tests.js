@@ -384,7 +384,7 @@ describe('Configuration Tests:', function () {
 
   describe('Testing Session Secret Configuration', function () {
     it('should warn if using default session secret when running in production', function (done) {
-      var conf = { sessionSecret: 'MEAN' };
+      var conf = { sessionSecret: 'OWWWLY' };
       // set env to production for this test
       process.env.NODE_ENV = 'production';
       config.utils.validateSessionSecret(conf, true).should.equal(false);
@@ -403,7 +403,7 @@ describe('Configuration Tests:', function () {
     });
 
     it('should accept default session secret when running in development', function () {
-      var conf = { sessionSecret: 'MEAN' };
+      var conf = { sessionSecret: 'OWWWLY' };
       // set env to development for this test
       process.env.NODE_ENV = 'development';
       config.utils.validateSessionSecret(conf, true).should.equal(true);
@@ -412,7 +412,7 @@ describe('Configuration Tests:', function () {
     });
 
     it('should accept default session secret when running in test', function () {
-      var conf = { sessionSecret: 'MEAN' };
+      var conf = { sessionSecret: 'OWWWLY' };
       config.utils.validateSessionSecret(conf, true).should.equal(true);
     });
   });

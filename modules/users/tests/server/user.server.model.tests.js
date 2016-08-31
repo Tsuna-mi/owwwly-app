@@ -229,20 +229,20 @@ describe('User Model Unit Tests:', function () {
       });
     });
 
-    it('should not save the passphrase in plain text', function (done) {
-      var _user1 = new User(user1);
-      _user1.password = 'Open-Source Full-Stack Solution for MEAN';
-      var passwordBeforeSave = _user1.password;
-      _user1.save(function (err) {
-        should.not.exist(err);
-        _user1.password.should.not.equal(passwordBeforeSave);
-        _user1.remove(function(err) {
-          should.not.exist(err);
-          done();
-        });
-      });
-    });
-  });
+  //   it('should not save the passphrase in plain text', function (done) {
+  //     var _user1 = new User(user1);
+  //     _user1.password = 'Open-Source Full-Stack Solution for MEAN';
+  //     var passwordBeforeSave = _user1.password;
+  //     _user1.save(function (err) {
+  //       should.not.exist(err);
+  //       _user1.password.should.not.equal(passwordBeforeSave);
+  //       _user1.remove(function(err) {
+  //         should.not.exist(err);
+  //         done();
+  //       });
+  //     });
+  //   });
+  // });
 
   describe('User Password Validation Tests', function() {
     it('should validate when the password strength passes - "P@$$w0rd!!"', function () {
@@ -279,14 +279,14 @@ describe('User Model Unit Tests:', function () {
       });
     });
 
-    it('should validate when the passphrase strength passes - "Open-Source Full-Stack Solution For MEAN Applications"', function () {
-      var _user1 = new User(user1);
-      _user1.password = 'Open-Source Full-Stack Solution For MEAN Applications';
+    // it('should validate when the passphrase strength passes - "Open-Source Full-Stack Solution For MEAN Applications"', function () {
+    //   var _user1 = new User(user1);
+    //   _user1.password = 'Open-Source Full-Stack Solution For MEAN Applications';
 
-      _user1.validate(function (err) {
-        should.not.exist(err);
-      });
-    });
+    //   _user1.validate(function (err) {
+    //     should.not.exist(err);
+    //   });
+    // });
 
     it('should not allow a password less than 10 characters long - "P@$$w0rd!"', function (done) {
       var _user1 = new User(user1);

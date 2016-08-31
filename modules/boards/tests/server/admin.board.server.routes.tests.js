@@ -128,7 +128,7 @@ describe('Board Admin CRUD tests', function () {
             }
 
             // Update board title
-            board.title = 'WHY YOU GOTTA BE SO MEAN?';
+            board.title = 'WHY YOU GOTTA BE SO OWWWLY?';
 
             // Update an existing board
             agent.put('/api/boards/' + boardSaveRes.body._id)
@@ -142,7 +142,7 @@ describe('Board Admin CRUD tests', function () {
 
                 // Set assertions
                 (boardUpdateRes.body._id).should.equal(boardSaveRes.body._id);
-                (boardUpdateRes.body.title).should.match('WHY YOU GOTTA BE SO MEAN?');
+                (boardUpdateRes.body.title).should.match('WHY YOU GOTTA BE SO OWWWLY?');
 
                 // Call the assertion callback
                 done();

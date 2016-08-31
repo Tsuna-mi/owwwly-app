@@ -29,7 +29,11 @@ module.exports = {
   // Lusca config
   csrf: {
     csrf: false,
-    csp: { /* Content Security Policy object */},
+    csp: { policy: {
+        // "default-src": "'self'",
+        // "connect-src": "'self'",
+        // "img-src": "'self'"
+        }},
     xframe: 'SAMEORIGIN',
     p3p: 'ABCDEF',
     xssProtection: true
@@ -43,5 +47,5 @@ module.exports = {
         fileSize: 1 * 1024 * 1024 // Max file size in bytes (1 MB)
       }
     }
-  }
+  } 
 };

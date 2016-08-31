@@ -49,8 +49,8 @@
       // create mock board
       mockBoard = new BoardsService({
         _id: '525a8422f6d0f87f0e407a33',
-        title: 'An Board about MEAN',
-        content: 'MEAN rocks!'
+        title: 'An Board about OWWWLY',
+        content: 'OWWWLY rocks!'
       });
 
       // Mock logged in user
@@ -74,8 +74,8 @@
       beforeEach(function () {
         // Create a sample board object
         sampleBoardPostData = new BoardsService({
-          title: 'An Board about MEAN',
-          content: 'MEAN rocks!'
+          title: 'An Board about OWWWLY',
+          content: 'OWWWLY rocks!'
         });
 
         $scope.vm.board = sampleBoardPostData;

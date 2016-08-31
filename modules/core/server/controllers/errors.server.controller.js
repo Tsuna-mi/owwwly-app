@@ -16,11 +16,11 @@ var getUniqueErrorMessage = function (err) {
     var begin = 0;
     if (err.errmsg.lastIndexOf('.$') !== -1) {
       // support mongodb <= 3.0 (default: MMapv1 engine)
-      // "errmsg" : "E11000 duplicate key error index: mean-dev.users.$email_1 dup key: { : \"test@user.com\" }"
+      // "errmsg" : "E11000 duplicate key error index: owwwly-dev.users.$email_1 dup key: { : \"test@user.com\" }"
       begin = err.errmsg.lastIndexOf('.$') + 2;
     } else {
       // support mongodb >= 3.2 (default: WiredTiger engine)
-      // "errmsg" : "E11000 duplicate key error collection: mean-dev.users index: email_1 dup key: { : \"test@user.com\" }"
+      // "errmsg" : "E11000 duplicate key error collection: owwwly-dev.users index: email_1 dup key: { : \"test@user.com\" }"
       begin = err.errmsg.lastIndexOf('index: ') + 7;
     }
     var fieldName = err.errmsg.substring(begin, err.errmsg.lastIndexOf('_1'));
