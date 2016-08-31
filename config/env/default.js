@@ -3,7 +3,7 @@
 module.exports = {
   app: {
     title: 'owwwly-app',
-    description: 'Owwwly an application to help you plan events.',
+    description: 'Owwwly an application to help you plan events. Brings you the possibility to plan meetings with your friends and colleagues. They can suggest and vote for dates, places and plans easily. No more headaches organizing it all!!',
     keywords: 'owwwly, skylab, fullstack, mongodb, express, angularjs, node.js, mongoose, passport, browserify, sass',
     googleAnalyticsTrackingID: process.env.GOOGLE_ANALYTICS_TRACKING_ID || 'GOOGLE_ANALYTICS_TRACKING_ID'
   },
