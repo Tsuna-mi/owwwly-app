@@ -1,7 +1,7 @@
 'use strict';
 
 /**
- * Module dependencies
+ * Module dependencies.
  */
 var mongoose = require('mongoose'),
   Schema = mongoose.Schema;
@@ -10,20 +10,15 @@ var mongoose = require('mongoose'),
  * Board Schema
  */
 var BoardSchema = new Schema({
+  name: {
+    type: String,
+    default: '',
+    required: 'Please fill Board name',
+    trim: true
+  },
   created: {
     type: Date,
     default: Date.now
-  },
-  title: {
-    type: String,
-    default: '',
-    trim: true,
-    required: 'Title cannot be blank'
-  },
-  content: {
-    type: String,
-    default: '',
-    trim: true
   },
   user: {
     type: Schema.ObjectId,

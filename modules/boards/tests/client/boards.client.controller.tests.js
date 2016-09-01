@@ -46,11 +46,10 @@
       Authentication = _Authentication_;
       BoardsService = _BoardsService_;
 
-      // create mock board
+      // create mock Board
       mockBoard = new BoardsService({
         _id: '525a8422f6d0f87f0e407a33',
-        title: 'An Board about OWWWLY',
-        content: 'OWWWLY rocks!'
+        name: 'Board Name'
       });
 
       // Mock logged in user
@@ -67,5 +66,105 @@
       // Spy on state go
       spyOn($state, 'go');
     }));
+
+    describe('vm.save() as create', function () {
+      var sampleBoardPostData;
+
+      beforeEach(function () {
+        // Create a sample Board object
+        sampleBoardPostData = new BoardsService({
+          name: 'Board Name'
+        });
+
+        $scope.vm.board = sampleBoardPostData;
+      });
+
+      it('should send a POST request with the form input values and then locate to new object URL', inject(function (BoardsService) {
+        // Set POST response
+        $httpBackend.expectPOST('api/boards', sampleBoardPostData).respond(mockBoard);
+
+        // Run controller functionality
+        $scope.vm.save(true);
+        $httpBackend.flush();
+
+        // Test URL redirection after the Board was created
+        expect($state.go).toHaveBeenCalledWith('boards.view', {
+          boardId: mockBoard._id
+        });
+      }));
+
+      it('should set $scope.vm.error if error', function () {
+        var errorMessage = 'this is an error message';
+        $httpBackend.expectPOST('api/boards', sampleBoardPostData).respond(400, {
+          message: errorMessage
+        });
+
+        $scope.vm.save(true);
+        $httpBackend.flush();
+
+        expect($scope.vm.error).toBe(errorMessage);
+      });
+    });
+
+    describe('vm.save() as update', function () {
+      beforeEach(function () {
+        // Mock Board in $scope
+        $scope.vm.board = mockBoard;
+      });
+
+      it('should update a valid Board', inject(function (BoardsService) {
+        // Set PUT response
+        $httpBackend.expectPUT(/api\/boards\/([0-9a-fA-F]{24})$/).respond();
+
+        // Run controller functionality
+        $scope.vm.save(true);
+        $httpBackend.flush();
+
+        // Test URL location to new object
+        expect($state.go).toHaveBeenCalledWith('boards.view', {
+          boardId: mockBoard._id
+        });
+      }));
+
+      it('should set $scope.vm.error if error', inject(function (BoardsService) {
+        var errorMessage = 'error';
+        $httpBackend.expectPUT(/api\/boards\/([0-9a-fA-F]{24})$/).respond(400, {
+          message: errorMessage
+        });
+
+        $scope.vm.save(true);
+        $httpBackend.flush();
+
+        expect($scope.vm.error).toBe(errorMessage);
+      }));
+    });
+
+    describe('vm.remove()', function () {
+      beforeEach(function () {
+        // Setup Boards
+        $scope.vm.board = mockBoard;
+      });
+
+      it('should delete the Board and redirect to Boards', function () {
+        // Return true on confirm message
+        spyOn(window, 'confirm').and.returnValue(true);
+
+        $httpBackend.expectDELETE(/api\/boards\/([0-9a-fA-F]{24})$/).respond(204);
+
+        $scope.vm.remove();
+        $httpBackend.flush();
+
+        expect($state.go).toHaveBeenCalledWith('boards.list');
+      });
+
+      it('should should not delete the Board and not redirect', function () {
+        // Return false on confirm message
+        spyOn(window, 'confirm').and.returnValue(false);
+
+        $scope.vm.remove();
+
+        expect($state.go).not.toHaveBeenCalled();
+      });
+    });
   });
 }());

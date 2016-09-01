@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('boards.routes')
+    .module('boards')
     .config(routeConfig);
 
   routeConfig.$inject = ['$stateProvider'];
@@ -23,6 +23,32 @@
           pageTitle: 'Boards List'
         }
       })
+      .state('boards.create', {
+        url: '/create',
+        templateUrl: 'modules/boards/client/views/form-board.client.view.html',
+        controller: 'BoardsController',
+        controllerAs: 'vm',
+        resolve: {
+          boardResolve: newBoard
+        },
+        data: {
+          roles: ['user', 'admin'],
+          pageTitle: 'Boards Create'
+        }
+      })
+      .state('boards.edit', {
+        url: '/:boardId/edit',
+        templateUrl: 'modules/boards/client/views/form-board.client.view.html',
+        controller: 'BoardsController',
+        controllerAs: 'vm',
+        resolve: {
+          boardResolve: getBoard
+        },
+        data: {
+          roles: ['user', 'admin'],
+          pageTitle: 'Edit Board {{ boardResolve.name }}'
+        }
+      })
       .state('boards.view', {
         url: '/:boardId',
         templateUrl: 'modules/boards/client/views/view-board.client.view.html',
@@ -32,7 +58,7 @@
           boardResolve: getBoard
         },
         data: {
-          pageTitle: 'Board {{ boardResolve.title }}'
+          pageTitle: 'Board {{ boardResolve.name }}'
         }
       });
   }
@@ -43,5 +69,11 @@
     return BoardsService.get({
       boardId: $stateParams.boardId
     }).$promise;
+  }
+
+  newBoard.$inject = ['BoardsService'];
+
+  function newBoard(BoardsService) {
+    return new BoardsService();
   }
 }());

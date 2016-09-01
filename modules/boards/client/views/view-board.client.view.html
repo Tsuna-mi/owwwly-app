@@ -1,13 +1,24 @@
 <section>
   <div class="page-header">
-    <h1 ng-bind="vm.board.title"></h1>
+    <h1 ng-bind="vm.board.name"></h1>
+  </div>
+  <div class="pull-right"
+       ng-show="vm.board.isCurrentUserOwner">
+    <a class="btn btn-primary"
+       ui-sref="boards.edit({ boardId: vm.board._id })">
+      <i class="glyphicon glyphicon-edit"></i>
+    </a>
+    <a class="btn btn-primary" ng-click="vm.remove()">
+      <i class="glyphicon glyphicon-trash"></i>
+    </a>
   </div>
   <small>
     <em class="text-muted">
       Posted on
       <span ng-bind="vm.board.created | date:'mediumDate'"></span>
       by
-      <span ng-if="vm.board.user" ng-bind="vm.board.user.displayName"></span>
+      <span ng-if="vm.board.user"
+            ng-bind="vm.board.user.displayName"></span>
       <span ng-if="!vm.board.user">Deleted User</span>
     </em>
   </small>

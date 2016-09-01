@@ -17,22 +17,20 @@ var user,
 /**
  * Unit tests
  */
-describe('Board Model Unit Tests:', function () {
-
-  beforeEach(function (done) {
+describe('Board Model Unit Tests:', function() {
+  beforeEach(function(done) {
     user = new User({
       firstName: 'Full',
       lastName: 'Name',
       displayName: 'Full Name',
       email: 'test@test.com',
       username: 'username',
-      password: 'M3@n.jsI$Aw3$0m3'
+      password: 'password'
     });
 
-    user.save(function () {
+    user.save(function() {
       board = new Board({
-        title: 'Board Title',
-        content: 'Board Content',
+        name: 'Board Name',
         user: user
       });
 
@@ -40,28 +38,30 @@ describe('Board Model Unit Tests:', function () {
     });
   });
 
-  describe('Method Save', function () {
-    it('should be able to save without problems', function (done) {
-      this.timeout(10000);
-      board.save(function (err) {
+  describe('Method Save', function() {
+    it('should be able to save without problems', function(done) {
+      this.timeout(0);
+      return board.save(function(err) {
         should.not.exist(err);
-        return done();
+        done();
       });
     });
 
-    it('should be able to show an error when try to save without title', function (done) {
-      board.title = '';
+    it('should be able to show an error when try to save without name', function(done) {
+      board.name = '';
 
-      board.save(function (err) {
+      return board.save(function(err) {
         should.exist(err);
-        return done();
+        done();
       });
     });
   });
 
-  afterEach(function (done) {
-    Board.remove().exec(function () {
-      User.remove().exec(done);
+  afterEach(function(done) {
+    Board.remove().exec(function() {
+      User.remove().exec(function() {
+        done();
+      });
     });
   });
 });

@@ -25,7 +25,7 @@ exports.invokeRolesPolicies = function () {
     roles: ['user'],
     allows: [{
       resources: '/api/boards',
-      permissions: ['get']
+      permissions: ['get', 'post']
     }, {
       resources: '/api/boards/:boardId',
       permissions: ['get']
@@ -48,7 +48,7 @@ exports.invokeRolesPolicies = function () {
 exports.isAllowed = function (req, res, next) {
   var roles = (req.user) ? req.user.roles : ['guest'];
 
-  // If an board is being processed and the current user created it then allow any manipulation
+  // If an Board is being processed and the current user created it then allow any manipulation
   if (req.board && req.user && req.board.user && req.board.user.id === req.user.id) {
     return next();
   }

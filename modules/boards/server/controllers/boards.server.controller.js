@@ -1,78 +1,78 @@
 'use strict';
 
 /**
- * Module dependencies
+ * Module dependencies.
  */
 var path = require('path'),
   mongoose = require('mongoose'),
   Board = mongoose.model('Board'),
-  errorHandler = require(path.resolve('./modules/core/server/controllers/errors.server.controller'));
+  errorHandler = require(path.resolve('./modules/core/server/controllers/errors.server.controller')),
+  _ = require('lodash');
 
 /**
- * Create an board
+ * Create a Board
  */
-exports.create = function (req, res) {
+exports.create = function(req, res) {
   var board = new Board(req.body);
   board.user = req.user;
 
-  board.save(function (err) {
+  board.save(function(err) {
     if (err) {
       return res.status(400).send({
         message: errorHandler.getErrorMessage(err)
       });
     } else {
-      res.json(board);
+      res.jsonp(board);
     }
   });
 };
 
 /**
- * Show the current board
+ * Show the current Board
  */
-exports.read = function (req, res) {
+exports.read = function(req, res) {
   // convert mongoose document to JSON
   var board = req.board ? req.board.toJSON() : {};
 
-  // Add a custom field to the Board, for determining if the current User is the "owner".
-  // NOTE: This field is NOT persisted to the database, since it doesn't exist in the Board model.
-  board.isCurrentUserOwner = !!(req.user && board.user && board.user._id.toString() === req.user._id.toString());
+  // Add a custom field to the Article, for determining if the current User is the "owner".
+  // NOTE: This field is NOT persisted to the database, since it doesn't exist in the Article model.
+  board.isCurrentUserOwner = req.user && board.user && board.user._id.toString() === req.user._id.toString();
 
-  res.json(board);
+  res.jsonp(board);
 };
 
 /**
- * Update an board
+ * Update a Board
  */
-exports.update = function (req, res) {
+exports.update = function(req, res) {
   var board = req.board;
 
-  board.title = req.body.title;
-  board.content = req.body.content;
+  board = _.extend(board, req.body);
 
-  board.save(function (err) {
+  board.save(function(err) {
     if (err) {
       return res.status(400).send({
         message: errorHandler.getErrorMessage(err)
       });
     } else {
-      res.json(board);
+      res.jsonp(board);
     }
   });
 };
 
 /**
- * Delete an board
+ * Delete an Board
  */
-exports.delete = function (req, res) {
+exports.delete = function(req, res) {
   var board = req.board;
 
-  board.remove(function (err) {
+  board.remove(function(err) {
     if (err) {
       return res.status(400).send({
         message: errorHandler.getErrorMessage(err)
       });
     } else {
-      res.json(board);
+      res.jsonp(board);
     }
   });
 };
@@ -80,14 +80,14 @@ exports.delete = function (req, res) {
 /**
  * List of Boards
  */
-exports.list = function (req, res) {
-  Board.find().sort('-created').populate('user', 'displayName').exec(function (err, boards) {
+exports.list = function(req, res) {
+  Board.find().sort('-created').populate('user', 'displayName').exec(function(err, boards) {
     if (err) {
       return res.status(400).send({
         message: errorHandler.getErrorMessage(err)
       });
     } else {
-      res.json(boards);
+      res.jsonp(boards);
     }
   });
 };
@@ -95,7 +95,7 @@ exports.list = function (req, res) {
 /**
  * Board middleware
  */
-exports.boardByID = function (req, res, next, id) {
+exports.boardByID = function(req, res, next, id) {
 
   if (!mongoose.Types.ObjectId.isValid(id)) {
     return res.status(400).send({
@@ -108,7 +108,7 @@ exports.boardByID = function (req, res, next, id) {
       return next(err);
     } else if (!board) {
       return res.status(404).send({
-        message: 'No board with that identifier has been found'
+        message: 'No Board with that identifier has been found'
       });
     }
     req.board = board;

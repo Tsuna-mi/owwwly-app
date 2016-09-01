@@ -3,7 +3,9 @@
     <h1>Boards</h1>
   </div>
   <div class="list-group">
-    <a ng-repeat="board in vm.boards" ui-sref="boards.view({ boardId: board._id })" class="list-group-item">
+    <a ng-repeat="board in vm.boards"
+       ui-sref="boards.view({ boardId: board._id })"
+       class="list-group-item">
       <small class="list-group-item-text">
         Posted on
         <span ng-bind="board.created | date:'mediumDate'"></span>
@@ -11,8 +13,10 @@
         <span ng-if="board.user" ng-bind="board.user.displayName"></span>
         <span ng-if="!board.user">Deleted User</span>
       </small>
-      <h4 class="list-group-item-heading" ng-bind="board.title"></h4>
-      <p class="list-group-item-text" ng-bind="board.content"></p>
+      <h4 class="list-group-item-heading" ng-bind="board.name"></h4>
     </a>
+  </div>
+  <div class="alert alert-warning text-center" ng-if="vm.boards.$resolved && !vm.boards.length">
+    No Boards yet, why don't you <a ui-sref="boards.create">create one</a>?
   </div>
 </section>

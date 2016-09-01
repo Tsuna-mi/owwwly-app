@@ -48,18 +48,17 @@ describe('Board CRUD tests', function () {
       provider: 'local'
     });
 
-    // Save a user to the test db and create new board
+    // Save a user to the test db and create new Board
     user.save(function () {
       board = {
-        title: 'Board Title',
-        content: 'Board Content'
+        name: 'Board name'
       };
 
       done();
     });
   });
 
-  it('should not be able to save an board if logged in without the "admin" role', function (done) {
+  it('should be able to save a Board if logged in', function (done) {
     agent.post('/api/auth/signin')
       .send(credentials)
       .expect(200)
@@ -69,18 +68,42 @@ describe('Board CRUD tests', function () {
           return done(signinErr);
         }
 
+        // Get the userId
+        var userId = user.id;
+
+        // Save a new Board
         agent.post('/api/boards')
           .send(board)
-          .expect(403)
+          .expect(200)
           .end(function (boardSaveErr, boardSaveRes) {
-            // Call the assertion callback
-            done(boardSaveErr);
-          });
+            // Handle Board save error
+            if (boardSaveErr) {
+              return done(boardSaveErr);
+            }
 
+            // Get a list of Boards
+            agent.get('/api/boards')
+              .end(function (boardsGetErr, boardsGetRes) {
+                // Handle Boards save error
+                if (boardsGetErr) {
+                  return done(boardsGetErr);
+                }
+
+                // Get Boards list
+                var boards = boardsGetRes.body;
+
+                // Set assertions
+                (boards[0].user._id).should.equal(userId);
+                (boards[0].name).should.match('Board name');
+
+                // Call the assertion callback
+                done();
+              });
+          });
       });
   });
 
-  it('should not be able to save an board if not logged in', function (done) {
+  it('should not be able to save an Board if not logged in', function (done) {
     agent.post('/api/boards')
       .send(board)
       .expect(403)
@@ -90,7 +113,10 @@ describe('Board CRUD tests', function () {
       });
   });
 
-  it('should not be able to update an board if signed in without the "admin" role', function (done) {
+  it('should not be able to save an Board if no name is provided', function (done) {
+    // Invalidate name field
+    board.name = '';
+
     agent.post('/api/auth/signin')
       .send(credentials)
       .expect(200)
@@ -100,23 +126,77 @@ describe('Board CRUD tests', function () {
           return done(signinErr);
         }
 
+        // Get the userId
+        var userId = user.id;
+
+        // Save a new Board
         agent.post('/api/boards')
           .send(board)
-          .expect(403)
+          .expect(400)
           .end(function (boardSaveErr, boardSaveRes) {
-            // Call the assertion callback
+            // Set message assertion
+            (boardSaveRes.body.message).should.match('Please fill Board name');
+
+            // Handle Board save error
             done(boardSaveErr);
           });
       });
   });
 
-  it('should be able to get a list of boards if not signed in', function (done) {
-    // Create new board model instance
+  it('should be able to update an Board if signed in', function (done) {
+    agent.post('/api/auth/signin')
+      .send(credentials)
+      .expect(200)
+      .end(function (signinErr, signinRes) {
+        // Handle signin error
+        if (signinErr) {
+          return done(signinErr);
+        }
+
+        // Get the userId
+        var userId = user.id;
+
+        // Save a new Board
+        agent.post('/api/boards')
+          .send(board)
+          .expect(200)
+          .end(function (boardSaveErr, boardSaveRes) {
+            // Handle Board save error
+            if (boardSaveErr) {
+              return done(boardSaveErr);
+            }
+
+            // Update Board name
+            board.name = 'WHY YOU GOTTA BE SO MEAN?';
+
+            // Update an existing Board
+            agent.put('/api/boards/' + boardSaveRes.body._id)
+              .send(board)
+              .expect(200)
+              .end(function (boardUpdateErr, boardUpdateRes) {
+                // Handle Board update error
+                if (boardUpdateErr) {
+                  return done(boardUpdateErr);
+                }
+
+                // Set assertions
+                (boardUpdateRes.body._id).should.equal(boardSaveRes.body._id);
+                (boardUpdateRes.body.name).should.match('WHY YOU GOTTA BE SO MEAN?');
+
+                // Call the assertion callback
+                done();
+              });
+          });
+      });
+  });
+
+  it('should be able to get a list of Boards if not signed in', function (done) {
+    // Create new Board model instance
     var boardObj = new Board(board);
 
     // Save the board
     boardObj.save(function () {
-      // Request boards
+      // Request Boards
       request(app).get('/api/boards')
         .end(function (req, res) {
           // Set assertion
@@ -129,16 +209,16 @@ describe('Board CRUD tests', function () {
     });
   });
 
-  it('should be able to get a single board if not signed in', function (done) {
-    // Create new board model instance
+  it('should be able to get a single Board if not signed in', function (done) {
+    // Create new Board model instance
     var boardObj = new Board(board);
 
-    // Save the board
+    // Save the Board
     boardObj.save(function () {
       request(app).get('/api/boards/' + boardObj._id)
         .end(function (req, res) {
           // Set assertion
-          res.body.should.be.instanceof(Object).and.have.property('title', board.title);
+          res.body.should.be.instanceof(Object).and.have.property('name', board.name);
 
           // Call the assertion callback
           done();
@@ -146,7 +226,7 @@ describe('Board CRUD tests', function () {
     });
   });
 
-  it('should return proper error for single board with an invalid Id, if not signed in', function (done) {
+  it('should return proper error for single Board with an invalid Id, if not signed in', function (done) {
     // test is not a valid mongoose Id
     request(app).get('/api/boards/test')
       .end(function (req, res) {
@@ -158,19 +238,19 @@ describe('Board CRUD tests', function () {
       });
   });
 
-  it('should return proper error for single board which doesnt exist, if not signed in', function (done) {
-    // This is a valid mongoose Id but a non-existent board
+  it('should return proper error for single Board which doesnt exist, if not signed in', function (done) {
+    // This is a valid mongoose Id but a non-existent Board
     request(app).get('/api/boards/559e9cd815f80b4c256a8f41')
       .end(function (req, res) {
         // Set assertion
-        res.body.should.be.instanceof(Object).and.have.property('message', 'No board with that identifier has been found');
+        res.body.should.be.instanceof(Object).and.have.property('message', 'No Board with that identifier has been found');
 
         // Call the assertion callback
         done();
       });
   });
 
-  it('should not be able to delete an board if signed in without the "admin" role', function (done) {
+  it('should be able to delete an Board if signed in', function (done) {
     agent.post('/api/auth/signin')
       .send(credentials)
       .expect(200)
@@ -180,40 +260,63 @@ describe('Board CRUD tests', function () {
           return done(signinErr);
         }
 
+        // Get the userId
+        var userId = user.id;
+
+        // Save a new Board
         agent.post('/api/boards')
           .send(board)
-          .expect(403)
+          .expect(200)
           .end(function (boardSaveErr, boardSaveRes) {
-            // Call the assertion callback
-            done(boardSaveErr);
+            // Handle Board save error
+            if (boardSaveErr) {
+              return done(boardSaveErr);
+            }
+
+            // Delete an existing Board
+            agent.delete('/api/boards/' + boardSaveRes.body._id)
+              .send(board)
+              .expect(200)
+              .end(function (boardDeleteErr, boardDeleteRes) {
+                // Handle board error error
+                if (boardDeleteErr) {
+                  return done(boardDeleteErr);
+                }
+
+                // Set assertions
+                (boardDeleteRes.body._id).should.equal(boardSaveRes.body._id);
+
+                // Call the assertion callback
+                done();
+              });
           });
       });
   });
 
-  it('should not be able to delete an board if not signed in', function (done) {
-    // Set board user
+  it('should not be able to delete an Board if not signed in', function (done) {
+    // Set Board user
     board.user = user;
 
-    // Create new board model instance
+    // Create new Board model instance
     var boardObj = new Board(board);
 
-    // Save the board
+    // Save the Board
     boardObj.save(function () {
-      // Try deleting board
+      // Try deleting Board
       request(app).delete('/api/boards/' + boardObj._id)
         .expect(403)
         .end(function (boardDeleteErr, boardDeleteRes) {
           // Set message assertion
           (boardDeleteRes.body.message).should.match('User is not authorized');
 
-          // Handle board error error
+          // Handle Board error error
           done(boardDeleteErr);
         });
 
     });
   });
 
-  it('should be able to get a single board that has an orphaned user reference', function (done) {
+  it('should be able to get a single Board that has an orphaned user reference', function (done) {
     // Create orphan user creds
     var _creds = {
       username: 'orphan',
@@ -228,8 +331,7 @@ describe('Board CRUD tests', function () {
       email: 'orphan@test.com',
       username: _creds.username,
       password: _creds.password,
-      provider: 'local',
-      roles: ['admin']
+      provider: 'local'
     });
 
     _orphan.save(function (err, orphan) {
@@ -250,22 +352,22 @@ describe('Board CRUD tests', function () {
           // Get the userId
           var orphanId = orphan._id;
 
-          // Save a new board
+          // Save a new Board
           agent.post('/api/boards')
             .send(board)
             .expect(200)
             .end(function (boardSaveErr, boardSaveRes) {
-              // Handle board save error
+              // Handle Board save error
               if (boardSaveErr) {
                 return done(boardSaveErr);
               }
 
-              // Set assertions on new board
-              (boardSaveRes.body.title).should.equal(board.title);
+              // Set assertions on new Board
+              (boardSaveRes.body.name).should.equal(board.name);
               should.exist(boardSaveRes.body.user);
               should.equal(boardSaveRes.body.user._id, orphanId);
 
-              // force the board to have an orphaned user reference
+              // force the Board to have an orphaned user reference
               orphan.remove(function () {
                 // now signin with valid user
                 agent.post('/api/auth/signin')
@@ -277,18 +379,18 @@ describe('Board CRUD tests', function () {
                       return done(err);
                     }
 
-                    // Get the board
+                    // Get the Board
                     agent.get('/api/boards/' + boardSaveRes.body._id)
                       .expect(200)
                       .end(function (boardInfoErr, boardInfoRes) {
-                        // Handle board error
+                        // Handle Board error
                         if (boardInfoErr) {
                           return done(boardInfoErr);
                         }
 
                         // Set assertions
                         (boardInfoRes.body._id).should.equal(boardSaveRes.body._id);
-                        (boardInfoRes.body.title).should.equal(board.title);
+                        (boardInfoRes.body.name).should.equal(board.name);
                         should.equal(boardInfoRes.body.user, undefined);
 
                         // Call the assertion callback
@@ -296,111 +398,6 @@ describe('Board CRUD tests', function () {
                       });
                   });
               });
-            });
-        });
-    });
-  });
-
-  it('should be able to get a single board if not signed in and verify the custom "isCurrentUserOwner" field is set to "false"', function (done) {
-    // Create new board model instance
-    var boardObj = new Board(board);
-
-    // Save the board
-    boardObj.save(function () {
-      request(app).get('/api/boards/' + boardObj._id)
-        .end(function (req, res) {
-          // Set assertion
-          res.body.should.be.instanceof(Object).and.have.property('title', board.title);
-          // Assert the custom field "isCurrentUserOwner" is set to false for the un-authenticated User
-          res.body.should.be.instanceof(Object).and.have.property('isCurrentUserOwner', false);
-          // Call the assertion callback
-          done();
-        });
-    });
-  });
-
-  it('should be able to get single board, that a different user created, if logged in & verify the "isCurrentUserOwner" field is set to "false"', function (done) {
-    // Create temporary user creds
-    var _creds = {
-      username: 'boardowner',
-      password: 'M3@n.jsI$Aw3$0m3'
-    };
-
-    // Create user that will create the Board
-    var _boardOwner = new User({
-      firstName: 'Full',
-      lastName: 'Name',
-      displayName: 'Full Name',
-      email: 'temp@test.com',
-      username: _creds.username,
-      password: _creds.password,
-      provider: 'local',
-      roles: ['admin', 'user']
-    });
-
-    _boardOwner.save(function (err, _user) {
-      // Handle save error
-      if (err) {
-        return done(err);
-      }
-
-      // Sign in with the user that will create the Board
-      agent.post('/api/auth/signin')
-        .send(_creds)
-        .expect(200)
-        .end(function (signinErr, signinRes) {
-          // Handle signin error
-          if (signinErr) {
-            return done(signinErr);
-          }
-
-          // Get the userId
-          var userId = _user._id;
-
-          // Save a new board
-          agent.post('/api/boards')
-            .send(board)
-            .expect(200)
-            .end(function (boardSaveErr, boardSaveRes) {
-              // Handle board save error
-              if (boardSaveErr) {
-                return done(boardSaveErr);
-              }
-
-              // Set assertions on new board
-              (boardSaveRes.body.title).should.equal(board.title);
-              should.exist(boardSaveRes.body.user);
-              should.equal(boardSaveRes.body.user._id, userId);
-
-              // now signin with the test suite user
-              agent.post('/api/auth/signin')
-                .send(credentials)
-                .expect(200)
-                .end(function (err, res) {
-                  // Handle signin error
-                  if (err) {
-                    return done(err);
-                  }
-
-                  // Get the board
-                  agent.get('/api/boards/' + boardSaveRes.body._id)
-                    .expect(200)
-                    .end(function (boardInfoErr, boardInfoRes) {
-                      // Handle board error
-                      if (boardInfoErr) {
-                        return done(boardInfoErr);
-                      }
-
-                      // Set assertions
-                      (boardInfoRes.body._id).should.equal(boardSaveRes.body._id);
-                      (boardInfoRes.body.title).should.equal(board.title);
-                      // Assert that the custom field "isCurrentUserOwner" is set to false since the current User didn't create it
-                      (boardInfoRes.body.isCurrentUserOwner).should.equal(false);
-
-                      // Call the assertion callback
-                      done();
-                    });
-                });
             });
         });
     });
