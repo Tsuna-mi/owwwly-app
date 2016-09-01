@@ -1,21 +1,20 @@
 @media (min-width: 992px) {
   .nav-users {
-    position: fixed;
-  }
-}
+    position: fixed; } }
+
 .social-account-container {
   display: inline-block;
-  position: relative;
-}
+  position: relative; }
+
 .btn-remove-account {
   top: 10px;
   right: 10px;
-  position: absolute;
-}
+  position: absolute; }
+
 .btn-file {
   position: relative;
-  overflow: hidden;
-}
+  overflow: hidden; }
+
 .btn-file input[type=file] {
   position: absolute;
   top: 0;
@@ -28,25 +27,22 @@
   opacity: 0;
   background: white;
   cursor: inherit;
-  display: block;
-}
+  display: block; }
+
 .user-profile-picture {
   min-height: 150px;
-  max-height: 150px;
-}
+  max-height: 150px; }
+
 .cropArea {
-    background: #E4E4E4;
-    width: 300px;
-    height: 300px;
-}
+  background: #E4E4E4;
+  width: 300px;
+  height: 300px; }
 
 .social {
-   -webkit-transition-duration: 0.4s;
-   -moz-transition-duration: 0.4s;
-   -o-transition-duration: 0.4s;
-   transition-duration: 0.4s;
-}
+  -webkit-transition-duration: 0.4s;
+  -moz-transition-duration: 0.4s;
+  -o-transition-duration: 0.4s;
+  transition-duration: 0.4s; }
 
 .social:hover {
-    opacity: 0.65;
-}
+  opacity: 0.65; }

@@ -1,0 +1,44 @@
+.card{	
+	margin-top:5vw;
+	padding:60px;
+	border: 1px solid gray;
+	border-radius: 25px;
+	background:rgba(255,255,255,.3);
+	text-align: center;
+
+	.owwwly-logo {
+		margin: 0 auto;
+		img{
+			width: 25%;
+			display: inline-block;
+		}
+	}
+
+	h1 {
+		text-transform: uppercase;
+		position: relative;
+		margin-top: 20px;
+		font-family: cursive;
+
+		span{
+			position: relative;
+			padding: 0 20px;
+			z-index: -5;
+			
+		}
+	}
+
+	h1 span + *{
+				border-top: solid 1px black;
+				padding-top: 40px;
+				margin-top: -40px;
+			}
+
+}
+
+.register{
+	margin:25px 0;
+	.bregister{
+		margin-left: 20px;
+	}
+}
