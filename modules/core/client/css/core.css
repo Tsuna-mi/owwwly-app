@@ -157,7 +157,8 @@ body {
     color: white; }
   .jumbotron .btn {
     font-size: 21px;
-    padding: 14px 24px; }
+    padding: 14px 24px;
+    background-color: #93C54B; }
 
 .card {
   margin-top: 5vw;

@@ -5,7 +5,12 @@
     .module('core')
     .controller('HomeController', HomeController);
 
-  function HomeController() {
+    HomeController.$inject = ['$scope', 'Authentication'];
+
+  function HomeController($scope, Authentication) {
     var vm = this;
+
+    vm.authentication = Authentication;
   }
+
 }());

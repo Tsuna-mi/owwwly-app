@@ -1,6 +1,7 @@
 //IMPORTS
-$icon-font-path: "../../../public/lib/bootstrap/bower_components/fonts/";
+$icon-font-path: "../../../../public/lib/bootstrap/dist/fonts/";
 // @import "bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
+@import "../../../../public/lib/bootstrap-sass/assets/stylesheets/bootstrap/_bootstrap.sccs";
 @import "partials/_variables";
 @import "partials/_mixins";
 @import "partials/_bgGradient";
@@ -19,6 +20,7 @@ html, body,.index, .indexcontainer{
   width: 100%;
   height: 100%;
   display: flex;
+  font-family: roboto;
 }
 
 .browsehappy {

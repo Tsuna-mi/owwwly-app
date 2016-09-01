@@ -76,6 +76,8 @@
 	.btn {
 		font-size: 21px;
 		padding: 14px 24px;
+		// background-color: $brand-success;
+		@include button-variant(tomato, red, none);
 	}
 }
 
