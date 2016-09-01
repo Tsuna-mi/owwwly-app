@@ -4,22 +4,22 @@
  * Module dependencies.
  */
 var config = require('../config'),
-  express = require('express'),
-  morgan = require('morgan'),
-  logger = require('./logger'),
-  bodyParser = require('body-parser'),
-  session = require('express-session'),
-  MongoStore = require('connect-mongo')(session),
-  favicon = require('serve-favicon'),
-  compress = require('compression'),
-  methodOverride = require('method-override'),
-  cookieParser = require('cookie-parser'),
-  helmet = require('helmet'),
-  flash = require('connect-flash'),
-  hbs = require('express-hbs'),
-  path = require('path'),
-  _ = require('lodash'),
-  lusca = require('lusca');
+    express = require('express'),
+    morgan = require('morgan'),
+    logger = require('./logger'),
+    bodyParser = require('body-parser'),
+    session = require('express-session'),
+    MongoStore = require('connect-mongo')(session),
+    favicon = require('serve-favicon'),
+    compress = require('compression'),
+    methodOverride = require('method-override'),
+    cookieParser = require('cookie-parser'),
+    helmet = require('helmet'),
+    flash = require('connect-flash'),
+    hbs = require('express-hbs'),
+    path = require('path'),
+    _ = require('lodash'),
+    lusca = require('lusca');
 
 /**
  * Initialize local variables

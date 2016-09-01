@@ -83,6 +83,7 @@
     "wiredep": "^4.0.0"
   },
   "devDependencies": {
+    "browserify": "^13.1.0",
     "coveralls": "~2.11.6",
     "eslint": "~2.2.0",
     "eslint-config-airbnb": "^6.0.2",
@@ -139,6 +140,7 @@
     "run-sequence": "~1.1.5",
     "semver": "~5.3.0",
     "should": "~8.2.2",
-    "supertest": "~1.2.0"
+    "supertest": "~1.2.0",
+    "watchify": "^3.7.0"
   }
 }
