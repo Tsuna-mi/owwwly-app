@@ -1,4 +1,4 @@
-<div class="container" ng-controller="HeaderController as vm">
+<div class="container headernav" ng-controller="HeaderController as vm">
   <div class="navbar-header">
     <button class="navbar-toggle" type="button" ng-click="vm.isCollapsed = !vm.isCollapsed">
       <span class="sr-only">Toggle navigation</span>
@@ -10,7 +10,6 @@
     <div class='logo pull-left'>
 <!--         <a ui-sref="home" class="navbar-brand"><div ng-include="'/modules/core/client/views/owwwlyLogo.html'"></div></a>
  -->    </div>
-    owwwly
   </div>
   <nav class="navbar-collapse" uib-collapse="!vm.isCollapsed" role="navigation">
     <ul class="nav navbar-nav" ng-if="vm.menu.shouldRender(vm.authentication.user);">
@@ -24,13 +23,13 @@
         <a ng-switch-default ui-sref="{{item.state}}" ng-bind="item.title"></a>
       </li>
     </ul>
-    <ul class="nav navbar-nav navbar-right" ng-hide="vm.authentication.user">
-      <li ui-sref-active="active">
-        <a ui-sref="authentication.signup">Sign Up</a>
+    <ul class="nav nav-pills pull-right" ng-hide="vm.authentication.user">
+      <li ui-sref-active="active" class="nav-item">
+        <a ui-sref="authentication.signup" class="nav-link" id="bSignup">Sign Up</a>
       </li>
       <li class="divider-vertical"></li>
-      <li ui-sref-active="active">
-        <a ui-sref="authentication.signin">Log In</a>
+      <li ui-sref-active="active" class="nav-item" id="bLogin">
+        <a ui-sref="authentication.signin" class="nav-link">Log In</a>
       </li>
     </ul>
     <ul class="nav navbar-nav navbar-right" ng-show="vm.authentication.user">

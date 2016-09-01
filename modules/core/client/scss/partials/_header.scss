@@ -1,0 +1,13 @@
+.headernav{
+
+  #bSignup , #bLogin{
+    margin:5px 20px;
+    border: 1px solid gray;
+    border-radius: 4px;
+    &:focus
+  }
+  // li.active #bSignup, li.active #bSignup{
+  //   background-color: purple;
+  // }
+
+}

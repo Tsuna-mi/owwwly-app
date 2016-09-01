@@ -1,9 +1,12 @@
 //IMPORTS
 $icon-font-path: "../../../../public/lib/bootstrap/dist/fonts/";
 // @import "bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
-@import "../../../../public/lib/bootstrap-sass/assets/stylesheets/bootstrap/_bootstrap.sccs";
+@import "../../../../public/lib/bootstrap-sass/assets/stylesheets/_bootstrap";
+// @import "../../../../public/lib/bootstrap-sass/assets/stylesheets/bootstrap/buttons";
+// @import "partials/_buttons";
 @import "partials/_variables";
 @import "partials/_mixins";
+@import "partials/header";
 @import "partials/_bgGradient";
 @import "partials/_home";
 @import "partials/_cards";
@@ -41,6 +44,10 @@ body {
 .footer {
   padding-left: 15px;
   padding-right: 15px;
+}
+
+.header{
+  background-image: linear-gradient(to bottom, #5f2e84 35%, #333 100%);
 }
 
 /* Width images */
