@@ -4,22 +4,110 @@
   </div>
   <div class="col-md-12">
     <form name="vm.form.boardForm" class="form-horizontal" ng-submit="vm.save(vm.form.boardForm.$valid)" novalidate>
-      <fieldset>
-        <div class="form-group" show-errors>
-          <label class="control-label" for="name">Name</label>
-          <input name="name" type="text" ng-model="vm.board.name" id="name" class="form-control" placeholder="Name" required>
-          <div ng-messages="vm.form.boardForm.name.$error" role="alert">
-            <p class="help-block error-text" ng-message="required">Board name is required.</p>
+
+      <!-- title Event-->
+      <div class="form-group row" show-errors>
+        <label for="title" class="control-label col-md-2">Title</label>
+        <div class="col-md-10">
+          <input type="text" name="title" ng-model="vm.board.title" id="title" class="form-control" placeholder="Title Event" autofocus required>
+        </div>
+        <div ng-messages="vm.form.boardForm.title.$error" role="alert">
+          <p class="help-block error-text" ng-message="required">Board title is required.</p>
+        </div>
+      </div>
+
+      <!-- Category Event & Private/Public-->
+      <div class="form-group row">
+        <div class="categoryEvent">
+          <label for="SelectCategory" class="control-label col-md-2">Category</label>
+          <div class="col-md-5">
+            <select name="category" ng-model="vm.board.category" id="SelectCategory" class="form-control" required>
+              <option value="" disabled selected>Select the appropriate category</option>
+              <option value="restaurant">Restaurant</option>
+              <option value="movie">Movie</option>
+              <option value="music">Concert</option>
+              <option value="nature">Nature</option>
+              <option value="trip">Trip</option>
+              <option value="night">Nigth</option>
+              <option value="other">Other</option>
+            </select>
           </div>
         </div>
-        <div class="form-group">
-          <button type="submit" class="btn btn-default">{{vm.board._id ? 'Update' : 'Create'}}</button>
+        <div class="col-md-5">
+          <label class="col-md-5 control-label" for="visibility">Your board is...</label>
+          <div class="col-md-7">
+            <label class="radio-inline"><input type="radio" ng-model="vm.board.visibility" name="visibility" value="private" checked="checked">Private</label>
+            <label class="radio-inline"><input type="radio" ng-model="vm.board.visibility" name="visibility" value="public">Public</label>
+          </div>
         </div>
-        <div ng-show="vm.error" class="text-danger">
-          <strong ng-bind="vm.error"></strong>
+      </div>
+
+      <!-- Description Event -->
+      <div class="form-group row">
+        <label for="description" class="control-label col-md-2">Description</label>
+        <div class="col-md-10">
+          <textarea ng-model="vm.board.description" class="form-control" id="description" name="description" max-length="500" rows="3">Enter your event description here...</textarea>
         </div>
-      </fieldset>
+      </div>
+
+      <!-- Date, Time & City Event-->
+      <div class="form-group row">
+        <!-- Date Event -->
+        <label for="date" class="control-label col-md-2">Date</label>
+        <div class="col-md-2">
+          <input ng-model="vm.board.date" name="date" class="form-control" type="date" id="date">
+        </div>
+
+        <!-- Time Event -->
+        <label for="time" class="control-label col-md-2">Time</label>
+        <div class="col-md-2">
+          <input ng-model="vm.board.time" name="time" class="form-control" type="time" id="time">
+        </div>
+
+        <!-- City Event -->
+        <label for="city" class="control-label col-md-2">City</label>
+        <div class="col-md-2">
+          <input ng-model="vm.board.city" name="city" class="form-control" type="text" id="city">
+        </div>
+
+      </div>
+      <!-- URL Event -->
+      <div class="form-group row">
+        <label for="url" class="control-label col-md-2">URL</label>
+        <div class="col-md-10">
+          <input ng-model="vm.board.url" class="form-control" type="url" id="url">
+        </div>
+      </div>
+      <!-- Image Event -->
+<!--       <div class="form-group row">
+         <div class="form-group">
+          <input type="file" name="img[]" class="file">
+          <div class="input-group col-xs-12">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-picture"></i></span>
+            <input type="text" class="form-control input-lg" disabled placeholder="Upload Image">
+            <span class="input-group-btn">
+              <button class="browse btn btn-primary input-lg" type="button"><i class="glyphicon glyphicon-search"></i> Browse</button>
+            </span>
+          </div>
+        </div>
+ -->
+<!--         <label class="control-label" for="imageFile">Select File</label>
+        <input ng-model="vm.board.image" id="imageFile" type="file" class="file" data-show-preview="false">
+
+
+        <label class="custom-file">
+        <span class="btn btn-default btn-file">
+          Browse <input ng-model="vm.board.image" type="file" id="file" class="custom-file-input">
+        </span>
+          <span class="custom-file-control"></span>
+        </label>
+      </div>
+ -->      <div class="form-group">
+        <button class="btn btn-primary pull-right" type="submit">{{vm.board._id ? 'Update' : 'Create'}} Event</button>
+      </div>
+      <div ng-show="vm.error" class="text-danger">
+        <strong ng-bind="vm.error"></strong>
+      </div>
     </form>
   </div>
 </section>
-

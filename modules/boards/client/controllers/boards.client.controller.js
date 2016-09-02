@@ -12,11 +12,16 @@
     var vm = this;
 
     vm.authentication = Authentication;
-    vm.board = board;
     vm.error = null;
     vm.form = {};
     vm.remove = remove;
     vm.save = save;
+
+    vm.board = board;
+    console.log(vm.board);
+    console.log('form ');
+    console.log(vm.form.boardForm);
+    // vm.board.visibility = private;
 
     // Remove existing Board
     function remove() {

@@ -18,10 +18,10 @@ var BoardSchema = new Schema({
   },
   category: {
     type: String,
-    enum: ['Restaurant', 'Movie', 'Concert', 'Beach', 'Nature', 'Trip', 'Night', 'Other']
+    enum: ['restaurant', 'movie', 'concert', 'nature', 'trip', 'night', 'other']
   },
-  private:{
-    boolean: false
+  visibility:{
+    private: Boolean
   },
   description: {
     type: String,
@@ -32,11 +32,12 @@ var BoardSchema = new Schema({
     type: Date,
     default: Date.now
   },
-  dateEvent: {
+  date: {
     type: Date,
+    default: Date.now
   },
-  timeEvent: {
-    type: Date,
+  time: {
+    type: Date
   },
   city: {
     type: String,
@@ -65,5 +66,5 @@ var BoardSchema = new Schema({
 
 
 mongoose.model('Board', BoardSchema);
-module.exports = Board;
+// module.exports = Board;
 

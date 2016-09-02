@@ -5916,8 +5916,6 @@ input,
   margin: 5px 20px;
   border: 1px solid gray;
   border-radius: 4px; }
-  .headernav #bSignup:active, .headernav #bLogin:active {
-    background-color: purple; }
 
 body {
   background: #54e8dc;
@@ -6014,6 +6012,31 @@ body {
   margin: 25px 0; }
   .register .bregister {
     margin-left: 20px; }
+
+.btn-file {
+  position: relative;
+  overflow: hidden; }
+  .btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 100px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    background: white;
+    cursor: inherit;
+    display: block; }
+
+.browse {
+  background-color: #5c4084;
+  border-color: #5c4084; }
+  .browse:hover {
+    background-color: #442f62;
+    border-color: #442f62; }
 
 .titleEventCards {
   text-align: center; }
