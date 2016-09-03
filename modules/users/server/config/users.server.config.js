@@ -1,5 +1,5 @@
 'use strict';
-
+/* eslint-disable global-require */
 /**
  * Module dependencies
  */

@@ -14,7 +14,7 @@ var _ = require('lodash'),
  */
 var getGlobbedPaths = function (globPatterns, excludes) {
   // URL paths regex
-  var urlRegex = new RegExp('^(?:[a-z]+:)?\/\/', 'i');
+  var urlRegex = new RegExp('^(?:[a-z]+:)?\/\/', 'i');  // eslint-disable-line
 
   // The output array
   var output = [];
@@ -32,8 +32,8 @@ var getGlobbedPaths = function (globPatterns, excludes) {
       if (excludes) {
         files = files.map(function (file) {
           if (_.isArray(excludes)) {
-            for (var i in excludes) {
-              if (excludes.hasOwnProperty(i)) {
+            for (var i in excludes) { // eslint-disable-line
+              if (excludes.hasOwnProperty(i)) { // eslint-disable-line
                 file = file.replace(excludes[i], '');
               }
             }
@@ -166,6 +166,8 @@ var initGlobalConfigFiles = function (config, assets) {
 var initGlobalConfig = function () {
   // Validate NODE_ENV existence
   validateEnvironmentVariable();
+
+/* eslint-disable global-require */
 
   // Get the default assets
   var defaultAssets = require(path.join(process.cwd(), 'config/assets/default'));

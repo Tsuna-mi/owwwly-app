@@ -1,5 +1,5 @@
 'use strict';
-
+/* eslint-disable global-require */
 // Load the module dependencies
 var config = require('../config'),
   path = require('path'),

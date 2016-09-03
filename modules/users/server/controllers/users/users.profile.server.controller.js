@@ -56,6 +56,7 @@ exports.update = function (req, res) {
 exports.changeProfilePicture = function (req, res) {
   var user = req.user;
   var upload = multer(config.uploads.profileUpload).single('newProfilePicture');
+  /* eslint-disable global-require */
   var profileUploadFileFilter = require(path.resolve('./config/lib/multer')).profileUploadFileFilter;
   var existingImageUrl;
 

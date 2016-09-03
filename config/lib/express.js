@@ -1,25 +1,26 @@
 'use strict';
+// eslint-disable-line global-require
 
 /**
  * Module dependencies.
  */
 var config = require('../config'),
-    express = require('express'),
-    morgan = require('morgan'),
-    logger = require('./logger'),
-    bodyParser = require('body-parser'),
-    session = require('express-session'),
-    MongoStore = require('connect-mongo')(session),
-    favicon = require('serve-favicon'),
-    compress = require('compression'),
-    methodOverride = require('method-override'),
-    cookieParser = require('cookie-parser'),
-    helmet = require('helmet'),
-    flash = require('connect-flash'),
-    hbs = require('express-hbs'),
-    path = require('path'),
-    _ = require('lodash'),
-    lusca = require('lusca');
+  express = require('express'),
+  morgan = require('morgan'),
+  logger = require('./logger'),
+  bodyParser = require('body-parser'),
+  session = require('express-session'),
+  MongoStore = require('connect-mongo')(session),
+  favicon = require('serve-favicon'),
+  compress = require('compression'),
+  methodOverride = require('method-override'),
+  cookieParser = require('cookie-parser'),
+  helmet = require('helmet'),
+  flash = require('connect-flash'),
+  hbs = require('express-hbs'),
+  path = require('path'),
+  _ = require('lodash'),
+  lusca = require('lusca');
 
 /**
  * Initialize local variables
@@ -134,6 +135,7 @@ module.exports.initSession = function (app, db) {
 /**
  * Invoke modules server configuration
  */
+/* eslint-disable global-require */
 module.exports.initModulesConfiguration = function (app, db) {
   config.files.server.configs.forEach(function (configPath) {
     require(path.resolve(configPath))(app, db);
@@ -148,8 +150,8 @@ module.exports.initHelmetHeaders = function (app) {
   var SIX_MONTHS = 15778476000;
   app.use(helmet.frameguard());
   app.use(helmet.xssFilter());
-  //app.use(helmet.nosniff());
-  //app.use(helmet.ienoopen());
+  // app.use(helmet.nosniff());
+  // app.use(helmet.ienoopen());
   app.use(helmet.hsts({
     maxAge: SIX_MONTHS,
     includeSubdomains: true,

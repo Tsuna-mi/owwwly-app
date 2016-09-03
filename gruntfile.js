@@ -247,6 +247,7 @@ module.exports = function (grunt) {
   grunt.event.on('coverage', function(lcovFileContents, done) {
     // Set coverage config so karma-coverage knows to run coverage
     testConfig.coverage = true;
+    /* eslint-disable global-require */
     require('coveralls').handleInput(lcovFileContents, function(err) {
       if (err) {
         return done(err);
@@ -263,7 +264,7 @@ module.exports = function (grunt) {
     // Get the callback
     var done = this.async();
 
-    grunt.file.mkdir(path.normalize(__dirname + '/modules/users/client/img/profile/uploads'));
+    grunt.file.mkdir(path.normalize(__dirname + '/modules/users/client/img/profile/uploads'));  // eslint-disable-line
 
     done();
   });

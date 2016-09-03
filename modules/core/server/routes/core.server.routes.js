@@ -1,4 +1,5 @@
 'use strict';
+/* eslint-disable global-require */
 
 module.exports = function (app) {
   // Root routing

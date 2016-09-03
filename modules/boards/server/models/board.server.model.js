@@ -4,7 +4,7 @@
  * Module dependencies.
  */
 var mongoose = require('mongoose'),
-    Schema = mongoose.Schema;
+  Schema = mongoose.Schema;
 
 /**
  * Board Schema
@@ -20,7 +20,7 @@ var BoardSchema = new Schema({
     type: String,
     enum: ['restaurant', 'movie', 'concert', 'nature', 'trip', 'night', 'other']
   },
-  visibility:{
+  visibility: {
     private: Boolean
   },
   description: {

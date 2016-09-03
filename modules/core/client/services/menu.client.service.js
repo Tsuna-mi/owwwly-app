@@ -1,6 +1,6 @@
 (function () {
   'use strict';
-
+/* eslint-disable guard-for-in */
   angular
     .module('core')
     .factory('menuService', menuService);
@@ -60,8 +60,8 @@
 
       // Add submenu items
       if (options.items) {
-        for (var i in options.items) {
-          if (options.items.hasOwnProperty(i)) {
+        for (var i in options.items) {  // eslint-disable-line
+          if (options.items.hasOwnProperty(i)) {  // eslint-disable-line
             service.addSubMenuItem(menuId, options.state, options.items[i]);
           }
         }
@@ -79,7 +79,7 @@
       service.validateMenuExistence(menuId);
 
       // Search for menu item
-      for (var itemIndex in service.menus[menuId].items) {
+      for (var itemIndex in service.menus[menuId].items) { // eslint-disable-line
         if (service.menus[menuId].items[itemIndex].state === parentItemState) {
           // Push new submenu item
           service.menus[menuId].items[itemIndex].items.push({
@@ -116,10 +116,10 @@
             return false;
           }
 
-          for (var userRoleIndex in user.roles) {
-            if (user.roles.hasOwnProperty(userRoleIndex)) {
-              for (var roleIndex in this.roles) {
-                if (this.roles.hasOwnProperty(roleIndex) && this.roles[roleIndex] === user.roles[userRoleIndex]) {
+          for (var userRoleIndex in user.roles) { // eslint-disable-line
+            if (user.roles.hasOwnProperty(userRoleIndex)) { // eslint-disable-line
+              for (var roleIndex in this.roles) { // eslint-disable-line
+                if (this.roles.hasOwnProperty(roleIndex) && this.roles[roleIndex] === user.roles[userRoleIndex]) {  // eslint-disable-line
                   return true;
                 }
               }
@@ -150,8 +150,8 @@
       service.validateMenuExistence(menuId);
 
       // Search for menu item to remove
-      for (var itemIndex in service.menus[menuId].items) {
-        if (service.menus[menuId].items.hasOwnProperty(itemIndex) && service.menus[menuId].items[itemIndex].state === menuItemState) {
+      for (var itemIndex in service.menus[menuId].items) {  // eslint-disable-line
+        if (service.menus[menuId].items.hasOwnProperty(itemIndex) && service.menus[menuId].items[itemIndex].state === menuItemState) {  // eslint-disable-line
           service.menus[menuId].items.splice(itemIndex, 1);
         }
       }
@@ -166,10 +166,10 @@
       service.validateMenuExistence(menuId);
 
       // Search for menu item to remove
-      for (var itemIndex in service.menus[menuId].items) {
-        if (this.menus[menuId].items.hasOwnProperty(itemIndex)) {
-          for (var subitemIndex in service.menus[menuId].items[itemIndex].items) {
-            if (this.menus[menuId].items[itemIndex].items.hasOwnProperty(subitemIndex) && service.menus[menuId].items[itemIndex].items[subitemIndex].state === submenuItemState) {
+      for (var itemIndex in service.menus[menuId].items) {  // eslint-disable-line
+        if (this.menus[menuId].items.hasOwnProperty(itemIndex)) { // eslint-disable-line
+          for (var subitemIndex in service.menus[menuId].items[itemIndex].items) {  // eslint-disable-line
+            if (this.menus[menuId].items[itemIndex].items.hasOwnProperty(subitemIndex) && service.menus[menuId].items[itemIndex].items[subitemIndex].state === submenuItemState) {  // eslint-disable-line
               service.menus[menuId].items[itemIndex].items.splice(subitemIndex, 1);
             }
           }

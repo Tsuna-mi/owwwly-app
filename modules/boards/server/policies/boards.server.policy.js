@@ -59,7 +59,7 @@ exports.isAllowed = function (req, res, next) {
       // An authorization error occurred
       return res.status(500).send('Unexpected authorization error');
     } else {
-      if (isAllowed) {
+      if (isAllowed) {  // eslint-disable-line
         // Access granted! Invoke next middleware
         return next();
       } else {

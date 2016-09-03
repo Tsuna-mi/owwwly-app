@@ -1,7 +1,9 @@
 'use strict';
+// eslint-disable-line global-require
 
 module.exports = function (app) {
   // User Routes
+  /* eslint-disable global-require */
   var users = require('../controllers/users.server.controller');
 
   // Setting up the users profile api

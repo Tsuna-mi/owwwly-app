@@ -148,30 +148,28 @@ exports.saveOAuthUserProfile = function (req, providerUserProfile, done) {
     User.findOne(searchQuery, function (err, user) {
       if (err) {
         return done(err);
-      } else {
-        if (!user) {
-          var possibleUsername = providerUserProfile.username || ((providerUserProfile.email) ? providerUserProfile.email.split('@')[0] : '');
+      } else if (!user) {
+        var possibleUsername = providerUserProfile.username || ((providerUserProfile.email) ? providerUserProfile.email.split('@')[0] : '');
 
-          User.findUniqueUsername(possibleUsername, null, function (availableUsername) {
-            user = new User({
-              firstName: providerUserProfile.firstName,
-              lastName: providerUserProfile.lastName,
-              username: availableUsername,
-              displayName: providerUserProfile.displayName,
-              email: providerUserProfile.email,
-              profileImageURL: providerUserProfile.profileImageURL,
-              provider: providerUserProfile.provider,
-              providerData: providerUserProfile.providerData
-            });
-
-            // And save the user
-            user.save(function (err) {
-              return done(err, user);
-            });
+        User.findUniqueUsername(possibleUsername, null, function (availableUsername) {
+          user = new User({
+            firstName: providerUserProfile.firstName,
+            lastName: providerUserProfile.lastName,
+            username: availableUsername,
+            displayName: providerUserProfile.displayName,
+            email: providerUserProfile.email,
+            profileImageURL: providerUserProfile.profileImageURL,
+            provider: providerUserProfile.provider,
+            providerData: providerUserProfile.providerData
           });
-        } else {
-          return done(err, user);
-        }
+
+          // And save the user
+          user.save(function (err) {
+            return done(err, user);
+          });
+        });
+      } else {
+        return done(err, user);
       }
     });
   } else {

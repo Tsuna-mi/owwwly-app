@@ -1,12 +1,12 @@
 'use strict';
-
+/* eslint-disable global-require */
 /**
  * Module dependencies.
  */
 var config = require('../config'),
-    chalk = require('chalk'),
-    path = require('path'),
-    mongoose = require('mongoose');
+  chalk = require('chalk'),
+  path = require('path'),
+  mongoose = require('mongoose');
 
 // Load the mongoose models
 module.exports.loadModels = function (callback) {

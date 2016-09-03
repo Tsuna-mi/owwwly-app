@@ -57,7 +57,7 @@ exports.getErrorMessage = function (err) {
   } else if (err.message && !err.errors) {
     message = err.message;
   } else {
-    for (var errName in err.errors) {
+    for (var errName in err.errors) { // eslint-disable-line
       if (err.errors[errName].message) {
         message = err.errors[errName].message;
       }

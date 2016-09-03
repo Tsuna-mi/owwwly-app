@@ -28,7 +28,8 @@
       }, function (response) {
         if (response.status > 0) onErrorItem(response.data);
       }, function (evt) {
-        vm.progress = parseInt(100.0 * evt.loaded / evt.total, 10);
+        vm.progress = parseInt((100.0 * evt.loaded) / evt.total, 10);
+        // vm.progress = parseInt(100.0 * evt.loaded / evt.total, 10);
       });
     };
 

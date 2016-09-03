@@ -1,10 +1,10 @@
 module.exports = {
   extends: [
-    'airbnb-base/legacy'
+  'airbnb-base/legacy'
   ],
   rules: {
     camelcase: 0,
-    'comma-dangle': ['error', 'always-multiline'],
+    'comma-dangle': ['error', 'never'],
     'comma-spacing': [2, { before: false, after: true }],
     'consistent-return': 0,
     curly: 0,
@@ -12,9 +12,10 @@ module.exports = {
     eqeqeq: [2, 'smart'],
     'func-names': 0,
     'guard-for-in': 2,
-    indent: ["error", 2, { SwitchCase: 1 }],
+    indent: ["error", 2, { SwitchCase: 1 , outerIIFEBody: 1}],
     'key-spacing': [2, { beforeColon: false, afterColon: true }],
     'keyword-spacing': [2, { before: true, after: true }],
+    'linebreak-style': ["error", "unix"],
     'max-len': 0,
     'new-cap': [2, { newIsCapExceptions: ['acl.memoryBackend', 'acl'] }],
     'no-bitwise': 0,

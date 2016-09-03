@@ -1,4 +1,4 @@
-﻿(function () {
+(function () {
   'use strict';
 
   describe('Chat Route Tests', function () {
