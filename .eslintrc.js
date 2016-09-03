@@ -15,7 +15,7 @@ module.exports = {
     indent: ["error", 2, { SwitchCase: 1 , outerIIFEBody: 1}],
     'key-spacing': [2, { beforeColon: false, afterColon: true }],
     'keyword-spacing': [2, { before: true, after: true }],
-    'linebreak-style': ["error", "unix"],
+    'linebreak-style': ["error", "windows"],
     'max-len': 0,
     'new-cap': [2, { newIsCapExceptions: ['acl.memoryBackend', 'acl'] }],
     'no-bitwise': 0,
