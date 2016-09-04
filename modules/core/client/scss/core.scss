@@ -12,6 +12,8 @@ $icon-font-path: "../../../../public/lib/bootstrap/dist/fonts/";
 @import "partials/_cards";
 @import "partials/_button-file";
 @import "partials/_eventCard";
+@import "partials/_404";
+
 
 // @import "partials/_button-file";
 
@@ -52,6 +54,7 @@ body {
   width: 100%;
 }
 
+/*logo svg OWWWLY*/
 .flex-container{
   display: flex;
   height: 100%;
@@ -59,6 +62,19 @@ body {
   margin: 0;
   align-items: center;
   justify-content: center;
+  .logo {
+    margin: 0 auto;
+    svg{
+      max-height: 280px;
+      .text path{
+        fill: tomato;
+      }
+      .textShadow path{
+        fill: #d68a38;
+      }
+    }
+    
+  }
 }
 
 /* MEAN styles*/

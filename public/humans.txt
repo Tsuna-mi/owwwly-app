@@ -1,15 +1,24 @@
 # humanstxt.org/
 # The humans responsible & technology colophon
 
-# TEAM
+/* TEAM */
 
-    <name> -- <role> -- <twitter>
+    Web developers:
+    Ana Gamito | _imaginarte@gmail.com_  | @tsuna__mi
+    
+    From: 
+    Barcelona, Spain.
+  
+                        
+/* THANKS */
 
-# THANKS
+    Skylab Team (http://www.skylabcoders.com/)
 
-    <name>
 
-# TECHNOLOGY COLOPHON
+/* TECHNOLOGY COLOPHON */
 
-    HTML5, CSS3
-    jQuery, Modernizr
+    HTML5, CSS3, JS ES2015 & ES5, ANGULAR JS, JQUERY, NODE, EXPRESS, MONGODB, BOOSTRAP, SASS, GIT, BOWER, NPM, GRUNT, GULP
+    Some images are based on others designed by Freepik[http://www.freepik.es/]
+      
+
+    Last update: 2016/09/09

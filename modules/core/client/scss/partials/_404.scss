@@ -1,0 +1,23 @@
+.page404 svg {
+  .text, .open_eyes, .iris{
+    display: none;
+  }
+  .closed_eyes{
+    display: block;
+  }
+  .owl{
+    .purpleLighter{
+      fill:#F6B1C3;
+    }
+    .purpleLight{
+      fill:#F0788C;
+    }
+    .purple{
+      fill:#DE264C;
+    }
+    .purpleDark{
+      fill:#BC0D35;
+    }
+  }
+
+}

@@ -17,12 +17,6 @@
 		svg{
 			max-height: 80px;
 			width: 100px;
-			.text path{
-				fill: tomato;
-			}
-			.textShadow path{
-				fill: #d68a38;
-			}
 		}
 		
 	}
@@ -52,20 +46,6 @@
 	background-color: transparent;
 	margin: 0 auto;
 	
-	.logo {
-		margin: 0 auto;
-		svg{
-			max-height: 280px;
-			.text path{
-				fill: tomato;
-			}
-			.textShadow path{
-				fill: #d68a38;
-			}
-		}
-		
-	}
-
 	h1{
 		font-family: caveat, verdana;
 		margin-bottom:40px;

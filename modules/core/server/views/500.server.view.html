@@ -1,6 +1,13 @@
 {{!< layout}}
 
 {{#contentFor 'content'}}
+<div class="flex-container">
+  <div class="row">
+    <div class="logo col-lg-4 col-sm-6 col-xs-12">
+      <div class="text-center" ng-include="'/modules/core/client/views/owwwlyLogo.html'"></div>
+    </div>
+  </div>
+</div>
 <h1>Server Error</h1>
 <pre>
   {{error}}
