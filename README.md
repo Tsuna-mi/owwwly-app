@@ -1,24 +1,20 @@
-# OWWWLY project
-
-![Owwwly App Logo](modules/core/client/img/brand/logo.png)
+![Owwwly App Logo](modules/core/client/img/brand/logoSmall.png)
 
 ## Description
 
-**_owwwly_** brings users possibility to plan meetings with their friends. They can suggest and probe for dates, places and plans easily. No more headaches organizing it all!!
+**_Owwwly_** brings users possibility to plan meetings with their friends and colleagues. They can suggest and probe for dates, places and plans easily. 
+No more headaches organizing it all!!
 
 ### Date of Project
-
 August 22, 2016
 
 ### Place of birth
-
 Barcelona, Spain
 
 ### Team Members
-
                         name | email 
                         --- | --- 
-                        **Ana Gamito** | _imaginarte@gmail.com_
+                        **Ana Gamito** | _imaginarte3d@gmail.com_
 
 ---------
 
@@ -36,7 +32,7 @@ Barcelona, Spain
 - And Deployed on Heroku.
 
 Others:
-- ESLint, JsHint, Csslint, Uglify, RWD, Svg imges
+- ESLint, JsHint, Csslint, Uglify, RWD, Svg images
 
 
 
