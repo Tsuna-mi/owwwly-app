@@ -1,4 +1,4 @@
-![Owwwly App Logo](modules/core/client/img/brand/logoSmall.png)
+![Owwwly App Logo](modules/core/client/img/brand/logo-md.png)
 
 ## Description
 
