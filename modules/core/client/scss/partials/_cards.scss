@@ -1,36 +1,48 @@
-.card{	
-	margin-top:5vw;
-	padding:60px;
-	border: 1px solid #f4d75e;
-	border-radius: 25px;
-	background:rgba(255,255,255,.3);
-	text-align: center;
+.card{
+  margin-top:5vw;
+  padding:60px 0;
+  border-radius: 25px;
+  background:rgba(255,255,255,.3);
+  text-align: center;
 
-	h1 {
-		text-transform: uppercase;
-		position: relative;
-		margin-top: 20px;
-		font-family: cursive;
+  h1 {
+    text-transform: uppercase;
+    position: relative;
+    margin-top: 20px;
+    font-family: cursive;
 
-		span{
-			position: relative;
-			padding: 0 20px;
-			z-index: -5;
-			
-		}
-	}
+    span{
+      position: relative;
+      padding: 0 20px;
+      z-index: -5;
+      
+    }
+  }
 
-	h1 span + *{
-				border-top: solid 1px black;
-				padding-top: 40px;
-				margin-top: -40px;
-			}
+  h1 span + *{
+        border-top: solid 1px black;
+        padding-top: 40px;
+        margin-top: -40px;
+      }
 
 }
 
 .register{
-	margin:25px 0;
-	.bregister{
-		margin-left: 20px;
-	}
+  margin:25px 0;
+  .bregister{
+    margin-left: 20px;
+  }
 }
+
+ @media screen and (max-width: 768px){
+  .card{
+    margin: 0 -50px;
+    padding: 20px 0;
+    h1{
+      font-size: 40px;
+    }
+    p{
+      font-size: 15px;
+    }
+  }
+ }

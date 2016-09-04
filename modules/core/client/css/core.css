@@ -5963,15 +5963,14 @@ body {
     font-family: caveat, verdana;
     margin-bottom: 40px;
     line-height: .9em;
-    color: white; }
+    color: #FFFFFF; }
   .jumbotron .btn {
     font-size: 21px;
     padding: 14px 24px; }
 
 .card {
   margin-top: 5vw;
-  padding: 60px;
-  border: 1px solid #f4d75e;
+  padding: 60px 0;
   border-radius: 25px;
   background: rgba(255, 255, 255, 0.3);
   text-align: center; }
@@ -5993,6 +5992,15 @@ body {
   margin: 25px 0; }
   .register .bregister {
     margin-left: 20px; }
+
+@media screen and (max-width: 768px) {
+  .card {
+    margin: 0 auto;
+    padding: 20px 0; }
+    .card h1 {
+      font-size: 40px; }
+    .card p {
+      font-size: 15px; } }
 
 .btn-file {
   position: relative;
