@@ -15,10 +15,6 @@ $icon-font-path: "../../../../public/lib/bootstrap/dist/fonts/";
 
 // @import "partials/_button-file";
 
-//FONTS
-@import url("https://fonts.googleapis.com/css?family=Roboto:400,500");
-@import url("https://fonts.googleapis.com/css?family=Caveat:400,700");
-
 //CORE STYLES
 html, body,.index, .indexcontainer{
   width: 100%;
@@ -56,6 +52,14 @@ body {
   width: 100%;
 }
 
+.flex-container{
+  display: flex;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  align-items: center;
+  justify-content: center;
+}
 
 /* MEAN styles*/
 .content {
