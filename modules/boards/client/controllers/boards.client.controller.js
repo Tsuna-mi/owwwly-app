@@ -18,10 +18,12 @@
     vm.save = save;
 
     vm.board = board;
-    console.log(vm.board);
-    console.log('form ');
-    console.log(vm.form.boardForm);
-    // vm.board.visibility = private;
+    vm.board.created = new Date();
+    vm.board.date = new Date();
+
+    // vm.board.visibility = false;
+    vm.board.date = new Date(vm.board.date);
+    vm.board.user = vm.authentication.user.displayName;
 
     // Remove existing Board
     function remove() {

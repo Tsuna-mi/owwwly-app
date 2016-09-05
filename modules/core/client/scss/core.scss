@@ -11,8 +11,9 @@ $icon-font-path: "../../../../public/lib/bootstrap/dist/fonts/";
 @import "partials/_home";
 @import "partials/_cards";
 @import "partials/_button-file";
-@import "partials/_eventCard";
 @import "partials/_404";
+@import "../../../boards/client/scss/partials/_boardCard";
+
 
 
 // @import "partials/_button-file";

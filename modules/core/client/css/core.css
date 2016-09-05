@@ -132,33 +132,6 @@ body {
     background-color: #442f62;
     border-color: #442f62; }
 
-.titleEventCards {
-  text-align: center; }
-
-.event-card {
-  margin: 20px 15px;
-  padding: 5px 20px 20px;
-  background: rgba(255, 255, 255, 0.3);
-  border-radius: 15px; }
-  .event-card h3 {
-    color: #ffffff;
-    text-shadow: tomato 1px 0 5px; }
-  .event-card img {
-    max-width: 97%;
-    margin: 20px auto;
-    background-color: white;
-    padding: 8px;
-    box-shadow: 2px 2px 10px gray; }
-  .event-card p {
-    color: tomato; }
-  .event-card a {
-    color: #93C54B;
-    background: rgba(255, 255, 255, 0.4);
-    padding: 3px;
-    border-radius: 7px;
-    margin-left: -3px;
-    font-weight: 600; }
-
 .page404 svg .text, .page404 svg .open_eyes, .page404 svg .iris {
   display: none; }
 
@@ -176,6 +149,37 @@ body {
 
 .page404 svg .owl .purpleDark {
   fill: #BC0D35; }
+
+.titleEventCards {
+  text-align: center; }
+
+.event-card {
+  margin: 20px 5px;
+  padding: 5px 20px 20px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 15px; }
+  .event-card h3 {
+    color: #ffffff;
+    text-shadow: tomato 1px 0 5px; }
+  .event-card img {
+    max-width: 97%;
+    margin: 20px auto;
+    background-color: white;
+    padding: 8px;
+    box-shadow: 2px 2px 10px gray; }
+  .event-card p {
+    color: tomato; }
+  .event-card small {
+    color: #9d9d9d;
+    font-style: italic; }
+  .event-card a.ext {
+    color: #93C54B;
+    background: rgba(255, 255, 255, 0.4);
+    padding: 3px 5px;
+    border-radius: 7px;
+    margin: 0 15px 0 -3px;
+    font-weight: 500;
+    cursor: pointer; }
 
 html, body, .index, .indexcontainer {
   width: 100%;

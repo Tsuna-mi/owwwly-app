@@ -18,7 +18,7 @@ var BoardSchema = new Schema({
   },
   category: {
     type: String,
-    enum: ['restaurant', 'movie', 'concert', 'nature', 'trip', 'night', 'other']
+    enum: ['restaurant', 'movie', 'music', 'nature', 'trip', 'night', 'other']
   },
   visibility: {
     private: Boolean
@@ -29,12 +29,10 @@ var BoardSchema = new Schema({
     trim: true
   },
   created: {
-    type: Date,
-    default: Date.now
+    type: Date
   },
   date: {
-    type: Date,
-    default: Date.now
+    type: Date
   },
   time: {
     type: Date
