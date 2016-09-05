@@ -1,12 +1,34 @@
 .headernav{
+  .nav-item{
+    &:first-of-type{
+      margin-right: 15px;
+    }
+    .nav-link{
+      margin:5px 0px;
+      border-radius: 4px;
+      color: #9d9d9d;
+      background-color: transparent;
 
-  #bSignup , #bLogin{
-    margin:5px 20px;
-    border: 1px solid gray;
-    border-radius: 4px;
+      @include hover-state {
+        background-color: #60479c; //lila
+        color: rgba(255,255,255,.5);
+      }
+    }
   }
-  // li.active #bSignup, li.active #bSignup{
-  //   background-color: purple;
-  // }
+
+  .dropdown-menu{
+    background-color: #424549;
+    outline-color: #424549;
+    border-color: #212327;
+    color: rgba(255, 255, 255, 0.5);
+    a{
+      color: rgba(255,255,255,.5);
+      &:hover, &:active{
+        background-image: linear-gradient(to bottom, #dedede 0%, #e8e8e8 100%);
+        font-weight: 500;
+        color:#5f9ea0;
+      }
+    }
+  }
 
 }

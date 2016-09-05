@@ -1,10 +1,10 @@
 //IMPORTS
 $icon-font-path: "../../../../public/lib/bootstrap/dist/fonts/";
 // @import "bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
-@import "../../../../public/lib/bootstrap-sass/assets/stylesheets/_bootstrap";
+// @import "../../../../public/lib/bootstrap-sass/assets/stylesheets/_bootstrap";
 // @import "../../../../public/lib/bootstrap-sass/assets/stylesheets/bootstrap/buttons";
 // @import "partials/_buttons";
-@import "partials/_variables";
+// @import "partials/_variables";
 @import "partials/_mixins";
 @import "partials/header";
 @import "partials/_bgGradient";
@@ -22,7 +22,7 @@ html, body,.index, .indexcontainer{
   width: 100%;
   height: 100%;
   display: flex;
-  font-family: roboto;
+  font-family: roboto, helvetica, sans-serif;
 }
 
 .browsehappy {
@@ -35,6 +35,11 @@ html, body,.index, .indexcontainer{
 body {
   margin: 0;
   padding: 10px 25px;
+  &::selection {
+    background: #ffa500 !important; //orange
+    color: #fff;
+    text-shadow: 1px 1px #fff;
+  }
 }
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
