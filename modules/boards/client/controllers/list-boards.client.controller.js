@@ -11,6 +11,5 @@
     var vm = this;
 
     vm.boards = BoardsService.query();
-    console.log(vm.boards);
   }
 }());

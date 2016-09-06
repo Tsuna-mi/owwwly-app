@@ -29,7 +29,8 @@ var BoardSchema = new Schema({
     trim: true
   },
   created: {
-    type: Date
+    type: Date,
+    default: Date.now
   },
   date: {
     type: Date
