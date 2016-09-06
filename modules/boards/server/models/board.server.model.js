@@ -47,10 +47,8 @@ var BoardSchema = new Schema({
     default: '',
     trim: true
   },
-  image: {
-    type: String,
-    default: '',
-    trim: true
+  eventImage: {
+    type: String
   },
   userId: {
     type: Schema.ObjectId,
@@ -58,6 +56,9 @@ var BoardSchema = new Schema({
   },
   username: {
     type: String
+  },
+  isCurrentUserOwner: {
+    type: Boolean
   }
 
 });

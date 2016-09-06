@@ -20,13 +20,20 @@
     vm.board = board;
     vm.board.created = new Date();
     vm.board.date = new Date();
-
+    console.log(vm.board.eventImage);
     // vm.board.visibility = false;
     vm.board.date = new Date(vm.board.date);
     vm.board.user = vm.authentication.user.displayName;
+    console.log(vm.authentication.user);
     console.log(vm.board.created);
     vm.board.created = vm.board.created.toDateString();
     console.log(vm.board.created);
+    vm.board.isCurrentUserOwner = true;
+
+    // var hours = vm.board.time.getHours();
+    // var minutes = vm.board.time.getMinutes();
+    // vm.board.time = hours + ':' + minutes;
+    // console.log(vm.board.time);
 
     // Remove existing Board
     function remove() {

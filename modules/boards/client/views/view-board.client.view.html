@@ -1,6 +1,6 @@
 <section>
   <div class="page-header">
-    <h1 ng-bind="vm.board.name"></h1>
+    <h1>Board: {{vm.board.title}}</h1>
   </div>
   <div class="pull-right"
        ng-show="vm.board.isCurrentUserOwner">
@@ -11,6 +11,14 @@
     <a class="btn btn-success" ng-click="vm.remove()">
       <i class="glyphicon glyphicon-trash"></i>
     </a>
+  </div>
+  <div>
+    <p>lkdfjlka jlkdajfl ksdfjadslkjfdalk</p>
+    <p ng-if="board.type"><strong>Type Event: </strong>{{board.type}}</p>
+    <p ng-if="board.description"><strong>What? </strong>{{board.description}}</p>
+    <p ng-if="board.date || board.hour"><strong>When? </strong>{{board.date | date:'d MMM y'}} · {{board.hour | date: 'HH:mm'}}</p>
+    <p ng-if="board.city"><strong>Where? </strong>{{board.city}}</p>
+    <a class="ext" ng-if="board.url" ui-sref='board.url' target="_blank">Link</a>
   </div>
   <small>
     <em class="text-muted">
@@ -24,3 +32,34 @@
   </small>
   <p class="lead" ng-bind="vm.board.content"></p>
 </section>
+<!-- 
+<section>
+  <div class="page-header">
+    <h1 class="view">Your Event Boards</h1>
+  </div>
+  <div class="container-fluid">    
+    <div class="col-sm-6 col-lg-4" ng-repeat="board in vm.boards">
+      <div class="event-card">
+        <a ui-sref="boards.view({ boardId: board._id })">
+          <h3 ng-bind="board.title"></h3>
+          <img class="img-full img-responsive" ng-if="board.image" ng-src="board.image" alt="{{board.title}} event picture" />
+        </a>
+        <p ng-if="board.type"><strong>Type Event: </strong>{{board.type}}</p>
+        <p ng-if="board.description"><strong>What? </strong>{{board.description}}</p>
+        <p ng-if="board.date || board.hour"><strong>When? </strong>{{board.date | date:'d MMM y'}} · {{board.hour | date: 'HH:mm'}}</p>
+        <p ng-if="board.city"><strong>Where? </strong>{{board.city}}</p>
+        <a class="ext" ng-if="board.url" ui-sref='board.url' target="_blank">Link</a>
+        <small>
+          Created on <span>{{vm.board.created | date:'d MMM y'}}</span>by
+          <span ng-if="board.user">{{board.user.displayName}}</span>
+          <span ng-if="!board.user">Deleted User</span>
+        </small>
+      </div>
+      <div class="alert alert-warning text-center" ng-if="vm.boards.$resolved && !vm.boards.length">
+        No Boards yet, why don't you <a ui-sref="boards.create">create one</a>?
+      </div>
+    </div>
+  </div>
+
+</section>
+ -->
