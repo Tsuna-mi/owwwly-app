@@ -3,7 +3,7 @@
     <h1 class="view">{{vm.board._id ? 'Edit a Event Board' : 'Add an Event Board'}}</h1>
   </div>
   <div class="col-md-12">
-    <form name="vm.form.boardForm" class="form-horizontal" ng-submit="vm.save(vm.form.boardForm.$valid)" novalidate>
+    <form name="vm.form.boardForm" class="form-horizontal" ng-submit="vm.save(vm.form.boardForm.$valid)" novalidate autocomplete>
       <!-- Data hidden -->
       <input  type="hidden" ng-value="created">
       <input  type="hidden" ng-value="user">
@@ -40,7 +40,7 @@
           </div>
         </div>
         <div class="col-md-5">
-          <label class="col-md-5 control-label" for="visibility">Your board is...</label>
+          <label class="col-md-5 control-label checkLabel" for="visibility">Your board is...</label>
           <div class="col-md-7">
             <label class="radio-inline"><input type="radio" ng-model="vm.board.visibility" name="visibility" value="privateBoard" checked="checked">Private</label>
             <label class="radio-inline"><input type="radio" ng-model="vm.board.visibility" name="visibility" value="publicBoard">Public</label>
@@ -59,19 +59,19 @@
       <!-- Date, Time & City Event-->
       <div class="form-group row">
         <!-- Date Event -->
-        <label for="date" class="control-label col-md-2">Date</label>
+        <label for="date" class="control-label col-md-2 groupLabels">Date</label>
         <div class="col-md-2">
           <input ng-model="vm.board.date" name="date" class="form-control" type="date" id="date">
         </div>
 
         <!-- Time Event -->
-        <label for="time" class="control-label col-md-2">Time</label>
+        <label for="time" class="control-label col-md-2 groupLabels">Time</label>
         <div class="col-md-2">
           <input ng-model="vm.board.time" name="time" class="form-control" type="time" id="time" placeholder="00:00">
         </div>
 
         <!-- City Event -->
-        <label for="city" class="control-label col-md-2">City</label>
+        <label for="city" class="control-label col-md-2 groupLabels">City</label>
         <div class="col-md-2">
           <input ng-model="vm.board.city" name="city" class="form-control" type="text" id="city">
         </div>
@@ -90,9 +90,9 @@
           <input type="file" name="img[]" class="file">
           <div class="input-group col-xs-12">
             <span class="input-group-addon"><i class="glyphicon glyphicon-picture"></i></span>
-            <input type="text" class="form-control input-lg" disabled placeholder="Upload Image">
+            <input type="text" class="form-control input-lg btn-upload" disabled placeholder="Upload Image">
             <span class="input-group-btn">
-              <button class="browse btn btn-primary input-lg" type="button"><i class="glyphicon glyphicon-search"></i> Browse</button>
+              <button class="browse btn btn-warning input-lg" type="button"><i class="glyphicon glyphicon-search"></i> Browse</button>
             </span>
           </div>
         </div>

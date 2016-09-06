@@ -5,10 +5,10 @@
         <h1 ng-bind="vm.user.username"></h1>
       </div>
       <div class="col-md-4">
-        <a class="btn btn-primary" ui-sref="admin.user-edit({userId: vm.user._id})">
+        <a class="btn btn-success" ui-sref="admin.user-edit({userId: vm.user._id})">
           <i class="glyphicon glyphicon-edit"></i>
         </a>
-        <a class="btn btn-primary" ng-click="vm.remove()" ng-if="vm.user._id !== vm.authentication.user._id">
+        <a class="btn btn-success" ng-click="vm.remove()" ng-if="vm.user._id !== vm.authentication.user._id">
           <i class="glyphicon glyphicon-trash"></i>
         </a>
       </div>

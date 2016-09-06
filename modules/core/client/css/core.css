@@ -208,7 +208,7 @@ body {
 .header {
   background-image: linear-gradient(to bottom, #5f2e84 35%, #333 100%); }
 
-h1.view {
+.page-header h1 {
   color: #ffffff;
   text-shadow: #ff5402 3px 2px 3px;
   font-family: caveat;
@@ -243,6 +243,13 @@ h1.view {
 
 .btn-submit {
   margin: 30px 18px; }
+
+/*Nav pills stacked*/
+.nav-stacked > li.active > a, .nav-stacked > li.active > a:hover, .nav-stacked > li.active > a:focus, .btn-upload {
+  background-color: #fdac41; }
+
+a {
+  color: #333; }
 
 /* MEAN styles*/
 .content {
@@ -287,3 +294,9 @@ a:hover .header-profile-image {
 
 .has-error .help-inline.error-text {
   display: inline; }
+
+@media screen and (max-width: 992px) {
+  .form-horizontal .control-label.checkLabel {
+    margin: 15px 0 0 -15px; }
+  .form-horizontal label.groupLabels {
+    margin-top: 15px; } }

@@ -15,7 +15,7 @@
           <button class="btn btn-default btn-file" ngf-select="vm.fileSelected = true; vm.success = null" ng-model="picFile" accept="image/*">Select Picture</button>
         </div>
         <div ng-show="vm.fileSelected" class="text-center form-group">
-          <button class="btn btn-primary" ng-click="vm.upload(croppedDataUrl, picFile.name)">Upload</button>
+          <button class="btn btn-success" ng-click="vm.upload(croppedDataUrl, picFile.name)">Upload</button>
           <button class="btn btn-default" ng-click="vm.fileSelected = false">Cancel</button>
         </div>
         <div ng-show="vm.fileSelected" class="progress text-center">
