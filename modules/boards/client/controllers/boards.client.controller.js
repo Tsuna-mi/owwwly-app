@@ -24,6 +24,9 @@
     // vm.board.visibility = false;
     vm.board.date = new Date(vm.board.date);
     vm.board.user = vm.authentication.user.displayName;
+    console.log(vm.board.created);
+    vm.board.created = vm.board.created.toDateString();
+    console.log(vm.board.created);
 
     // Remove existing Board
     function remove() {

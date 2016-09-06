@@ -1,6 +1,6 @@
 <section>
   <div class="page-header">
-    <h1>{{vm.board._id ? 'Edit a Event Board' : 'Add an Event Board'}}</h1>
+    <h1 class="view">{{vm.board._id ? 'Edit a Event Board' : 'Add an Event Board'}}</h1>
   </div>
   <div class="col-md-12">
     <form name="vm.form.boardForm" class="form-horizontal" ng-submit="vm.save(vm.form.boardForm.$valid)" novalidate>
@@ -67,7 +67,7 @@
         <!-- Time Event -->
         <label for="time" class="control-label col-md-2">Time</label>
         <div class="col-md-2">
-          <input ng-model="vm.board.time" name="time" class="form-control" type="time" id="time">
+          <input ng-model="vm.board.time" name="time" class="form-control" type="time" id="time" placeholder="00:00">
         </div>
 
         <!-- City Event -->
@@ -109,7 +109,7 @@
         </label>
       </div>
  -->      <div class="form-group">
-        <button class="btn btn-primary pull-right" type="submit">{{vm.board._id ? 'Update' : 'Create'}} Event Board</button>
+        <button class="btn btn-success btn-lg pull-right btn-submit" type="submit">{{vm.board._id ? 'Update' : 'Create'}} Event Board</button>
       </div>
       <div ng-show="vm.error" class="text-danger">
         <strong ng-bind="vm.error"></strong>

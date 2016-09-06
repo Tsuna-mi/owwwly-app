@@ -150,9 +150,6 @@ body {
 .page404 svg .owl .purpleDark {
   fill: #BC0D35; }
 
-.titleEventCards {
-  text-align: center; }
-
 .event-card {
   margin: 20px 5px;
   padding: 5px 20px 20px;
@@ -211,6 +208,13 @@ body {
 .header {
   background-image: linear-gradient(to bottom, #5f2e84 35%, #333 100%); }
 
+h1.view {
+  color: #ffffff;
+  text-shadow: #ff5402 3px 2px 3px;
+  font-family: caveat;
+  font-size: 70px;
+  text-align: center; }
+
 /* Width images */
 .img-full {
   width: 100%; }
@@ -231,6 +235,14 @@ body {
         fill: tomato; }
       .flex-container .logo svg .textShadow path {
         fill: #d68a38; }
+
+/*Forms*/
+.form-control:focus {
+  border-color: #a989b7;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(137, 108, 164, 0.6); }
+
+.btn-submit {
+  margin: 30px 18px; }
 
 /* MEAN styles*/
 .content {
