@@ -22,6 +22,49 @@
       font-weight: 500;
       color: #5f9ea0; }
 
+@keyframes stars1 {
+  0% {
+    opacity: 0; }
+  15%, 70% {
+    opacity: 1; }
+  85%, 100% {
+    opacity: 0; } }
+
+@keyframes stars2 {
+  0%, 10% {
+    opacity: 0; }
+  25%, 85% {
+    opacity: 1; }
+  100% {
+    opacity: 0; } }
+
+.stars1 {
+  animation: stars1 5s ease infinite; }
+
+.stars2 {
+  animation: stars2 5s ease infinite; }
+
+@keyframes iris {
+  0% {
+    transform: scale(1, 1); }
+  50% {
+    transform: scale(1, 1.5); }
+  100% {
+    transform: scale(1, 1); } }
+
+@keyframes move {
+  0% {
+    transform: translate(-10px, -4px); }
+  50% {
+    transform: translate(0, 0); }
+  100% {
+    transform: translate(-10px, -4px); } }
+
+.iris {
+  animation: iris 3s ease infinite;
+  transform-origin: center top;
+  animation: move 4s linear infinite; }
+
 body {
   background: #54e8dc;
   background: linear-gradient(135deg, #54e8dc 0%, #54e8dc 0%, #f1e767 33%, #f0e568 41%, #feb645 61%, #fa762f 100%) fixed;
