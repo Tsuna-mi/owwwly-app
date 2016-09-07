@@ -96,6 +96,9 @@ body {
   .header nav {
     float: right; }
 
+.claiom {
+  color: #333; }
+
 /* Custom page footer */
 .footer {
   padding-top: 19px;
@@ -240,8 +243,7 @@ html, body, .index, .indexcontainer {
 
 body {
   margin: 0;
-  padding: 10px 25px;
-  color: #fa782f; }
+  padding: 10px 25px; }
   body::selection {
     background: #ffa500 !important;
     color: #fff;
@@ -294,6 +296,9 @@ body {
     max-height: 220px; }
 
 /*Forms*/
+form label {
+  color: #fa782f; }
+
 .form-control:focus {
   border-color: #a989b7;
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(137, 108, 164, 0.6); }
