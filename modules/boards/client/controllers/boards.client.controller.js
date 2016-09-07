@@ -6,9 +6,9 @@
     .module('boards')
     .controller('BoardsController', BoardsController);
 
-  BoardsController.$inject = ['$scope', '$state', '$window', 'Authentication', 'boardResolve'];
+  BoardsController.$inject = ['$scope', '$state', '$window', 'Authentication', 'boardResolve', '$filter'];
 
-  function BoardsController ($scope, $state, $window, Authentication, board) {
+  function BoardsController ($scope, $state, $window, Authentication, board, $filter) {
     var vm = this;
 
     vm.authentication = Authentication;
@@ -18,22 +18,22 @@
     vm.save = save;
 
     vm.board = board;
-    vm.board.created = new Date();
-    vm.board.date = new Date();
-    console.log(vm.board.eventImage);
-    // vm.board.visibility = false;
-    vm.board.date = new Date(vm.board.date);
+
+    if (vm.board.date === undefined) {
+      vm.board.date = new Date();
+    }
+    if (vm.board.time === undefined) {
+      vm.board.time = new Date(1970, 0, 1, 0, 0, 0);
+    }
+
+    vm.board.date = new Date($filter('date')(vm.board.date, 'yyyy-MM-dd'));
+    // vm.board.time = $filter('date')(new Date(vm.board.time), 'HH:mm');
+
+    vm.board.visibility = false;
+
     vm.board.user = vm.authentication.user.displayName;
-    console.log(vm.authentication.user);
-    console.log(vm.board.created);
-    vm.board.created = vm.board.created.toDateString();
-    console.log(vm.board.created);
     vm.board.isCurrentUserOwner = true;
 
-    // var hours = vm.board.time.getHours();
-    // var minutes = vm.board.time.getMinutes();
-    // vm.board.time = hours + ':' + minutes;
-    // console.log(vm.board.time);
 
     // Remove existing Board
     function remove() {
@@ -44,6 +44,10 @@
 
     // Save Board
     function save(isValid) {
+
+      vm.board.date = new Date(vm.board.date);
+
+
       if (!isValid) {
         $scope.$broadcast('show-errors-check-validity', 'vm.form.boardForm');
         return false;

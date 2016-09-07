@@ -21,7 +21,7 @@
     <p>{{vm.board.url}}</p>
     <p><strong>Type Event: </strong>{{vm.board.type}}</p>
     <p ng-if="vm.board.description"><strong>What? </strong>{{vm.board.description}}</p>
-    <p><strong>When? </strong><span ng-if="vm.board.date">{{vm.board.date | 'd MMM y'}} · </span><span ng-if="vm.board.hour">{{vm.board.time | date: 'HH:mm'}}</span></p>
+    <p><strong>When? </strong><span ng-if="vm.board.date">{{vm.board.date | date:'d MMM y'}} · </span><span ng-if="vm.board.time">{{vm.board.time | date: 'HH:mm'}}</span></p>
     <p ng-if="vm.board.city"><strong>Where? </strong>{{vm.board.city}}</p>
     <a class="ext" ng-if="vm.board.url" ui-sref='vm.board.url' target="_blank">Link</a>
   </div>
@@ -51,7 +51,7 @@
         </a>
         <p ng-if="board.type"><strong>Type Event: </strong>{{board.type}}</p>
         <p ng-if="board.description"><strong>What? </strong>{{board.description}}</p>
-        <p ng-if="board.date || board.hour"><strong>When? </strong>{{board.date | date:'d MMM y'}} · {{board.hour | date: 'HH:mm'}}</p>
+        <p ng-if="board.date || board.time"><strong>When? </strong>{{board.date | date:'d MMM y'}} · {{board.time | date: 'HH:mm'}}</p>
         <p ng-if="board.city"><strong>Where? </strong>{{board.city}}</p>
         <a class="ext" ng-if="board.url" ui-sref='board.url' target="_blank">Link</a>
         <small>

@@ -11,9 +11,9 @@
         </a>
         <p ng-if="board.type"><strong>Type Event: </strong>{{board.type}}</p>
         <p ng-if="board.description"><strong>What? </strong>{{board.description}}</p>
-        <p ng-if="board.date || board.hour"><strong>When? </strong>{{board.date | date:'d MMM y'}} · {{board.time | date: 'HH:mm'}}</p>
+        <p ng-if="board.date || board.time"><strong>When? </strong>{{board.date | date:'d MMM y'}} · {{board.time | date: 'HH:mm'}}</p>
         <p ng-if="board.city"><strong>Where? </strong>{{board.city}}</p>
-        <a class="ext" ng-if="board.url" ng-href="board.url" target="_blank">Link</a>
+        <a class="ext" ng-if="board.url" ng-href="{{ board.url }}" target="_blank">Link</a>
         <small>
           Created on <span data-ng-bind="board.created | date:'d MMM y'"></span> by 
           <span ng-if="board.user" data-ng-bind="vm.authentication.user.displayName"></span>
