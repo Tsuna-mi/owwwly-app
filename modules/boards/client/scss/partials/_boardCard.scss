@@ -22,17 +22,40 @@
     color: tomato;
   }
   small{
-    color:#9d9d9d;
+    color:#9d9d9d; //gris 
     font-style:italic;
   }
   a.ext{
-    color: #93C54B;
+    color: #93C54B; //verde
     background: rgba(255,255,255,.4);
     padding: 3px 5px;
     border-radius: 7px;
     margin: 0 15px 0 -3px;
     font-weight: 500;
     cursor:pointer;
+  }
+}
+
+/* Event card in board view */
+.event-card.single{
+  font-size: 120%;
+  width: 420px;
+  margin: 60px auto;
+  padding: 40px;
+  p:nth-child(n) {
+    margin-bottom: 20px;
+    color: #5d5d5d; //gris
+  }
+  p strong {
+    color: tomato;
+  }
+  img{
+    max-width: 97%;
+    margin: 0 auto;
+    margin-bottom: 40px;
+    background-color: white;
+    padding: 8px;
+    box-shadow: 2px 2px 10px gray;
   }
 
 }

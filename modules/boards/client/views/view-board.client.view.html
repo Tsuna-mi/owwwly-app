@@ -12,30 +12,25 @@
       <i class="glyphicon glyphicon-trash"></i>
     </a>
   </div>
-  <div>
-    <p>{{vm.board.type}}</p>
-    <p>{{vm.board.description}}</p>
-    <p>{{vm.board.date}}</p>
-    <p>{{vm.board.time}}</p>
-    <p>{{vm.board.city}}</p>
-    <p>{{vm.board.url}}</p>
-    <p><strong>Type Event: </strong>{{vm.board.type}}</p>
+  <div class="event-card single">
+    <img class="img-full img-responsive" ng-if="!board.eventImage" ng-src="modules/boards/client/img/board.jpg" alt="{{board.title}} event picture" />
+    <p class="capitalize"><strong>Type Event: </strong>{{vm.board.category}}</p>
     <p ng-if="vm.board.description"><strong>What? </strong>{{vm.board.description}}</p>
     <p><strong>When? </strong><span ng-if="vm.board.date">{{vm.board.date | date:'d MMM y'}} · </span><span ng-if="vm.board.time">{{vm.board.time | date: 'HH:mm'}}</span></p>
     <p ng-if="vm.board.city"><strong>Where? </strong>{{vm.board.city}}</p>
     <a class="ext" ng-if="vm.board.url" ui-sref='vm.board.url' target="_blank">Link</a>
+    <small>
+      <em class="text-muted">
+        Posted on
+        <span data-ng-bind="vm.board.created | date:'d MMM y'"></span>
+         by 
+        <span ng-if="vm.board.user"
+              data-ng-bind="vm.board.user.displayName"></span>
+        <span ng-if="!vm.board.user">Deleted User</span>
+      </em>
+    </small>
   </div>
-  <small>
-    <em class="text-muted">
-      Posted on
-      <span data-ng-bind="vm.board.created | date:'d MMM y'"></span>
-       by 
-      <span ng-if="vm.board.user"
-            data-ng-bind="vm.board.user.displayName"></span>
-      <span ng-if="!vm.board.user">Deleted User</span>
-    </em>
-  </small>
-  <p class="lead" ng-bind="vm.board.content"></p>
+
 </section>
 <!-- 
 <section>
