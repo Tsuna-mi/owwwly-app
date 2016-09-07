@@ -3,7 +3,7 @@
     <h1 class="view">Your Event Boards</h1>
   </div>
   <div class="container-fluid">    
-    <div class="col-sm-6 col-lg-4" ng-repeat="board in vm.boards">
+    <div class="col-sm-6 col-lg-4" ng-repeat="board in vm.boards | orderBy: '-date'">
       <div class="event-card">
         <a ui-sref="boards.view({ boardId: board._id })">
           <h3 ng-bind="board.title"></h3>
