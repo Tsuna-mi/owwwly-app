@@ -237,7 +237,8 @@ html, body, .index, .indexcontainer {
 
 body {
   margin: 0;
-  padding: 10px 25px; }
+  padding: 10px 25px;
+  color: #fa782f; }
   body::selection {
     background: #ffa500 !important;
     color: #fff;
@@ -253,12 +254,18 @@ body {
 .header {
   background-image: linear-gradient(to bottom, #5f2e84 35%, #333 100%); }
 
-.page-header h1 {
+.page-header {
   color: #ffffff;
   text-shadow: #ff5402 3px 2px 3px;
   font-family: caveat;
-  font-size: 70px;
   text-align: center; }
+  .page-header h1 {
+    font-size: 70px; }
+  .page-header h3 {
+    font-size: 45px; }
+
+.page-header.auth {
+  margin-top: 15px; }
 
 /* Width images */
 .img-full {
@@ -280,6 +287,8 @@ body {
         fill: tomato; }
       .flex-container .logo svg .textShadow path {
         fill: #d68a38; }
+  .flex-container .logo.auth svg {
+    max-height: 220px; }
 
 /*Forms*/
 .form-control:focus {

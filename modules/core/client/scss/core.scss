@@ -37,6 +37,7 @@ html, body,.index, .indexcontainer{
 body {
   margin: 0;
   padding: 10px 25px;
+  color: #fa782f; //orange
   &::selection {
     background: #ffa500 !important; //orange
     color: #fff;
@@ -56,12 +57,20 @@ body {
   background-image: linear-gradient(to bottom, #5f2e84 35%, #333 100%);
 }
 
-.page-header h1{
+.page-header{
   color: #ffffff;
   text-shadow: #ff5402 3px 2px 3px;
-  font-family: caveat;
-  font-size: 70px;
+  font-family: caveat;  
   text-align: center;
+  h1{
+    font-size: 70px;
+  }
+  h3{
+    font-size: 45px;
+  }
+}
+.page-header.auth{
+  margin-top:15px;
 }
 
 /* Width images */
@@ -87,8 +96,12 @@ body {
       .textShadow path{
         fill: #d68a38;
       }
+    }    
+  }
+  .logo.auth{
+    svg{
+      max-height: 220px;
     }
-    
   }
 }
 
