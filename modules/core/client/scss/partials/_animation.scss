@@ -24,9 +24,9 @@
 }
 
 @keyframes move{
-    0%   {transform: translate(-10px,-4px)}
-    50%   {transform: translate(0,0)}
-  100%  {transform: translate(-10px,-4px)}  
+    0%   {transform: translate(-5px,-6px)}
+    50%   {transform: translate(3px,0)}
+  100%  {transform: translate(-5px,-6px)}  
 }
 
 .iris {
@@ -35,3 +35,6 @@
   animation:move 4s linear infinite;
 }
 
+.open_eyes{
+  animation:move 4s linear infinite;
+}
