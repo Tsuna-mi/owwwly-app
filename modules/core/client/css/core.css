@@ -54,19 +54,19 @@
 
 @keyframes move {
   0% {
-    transform: translate(-5px, -6px); }
+    transform: translate(-5px, -1px); }
   50% {
-    transform: translate(3px, 0); }
+    transform: translate(7px, 0); }
   100% {
-    transform: translate(-5px, -6px); } }
+    transform: translate(-5px, -1px); } }
 
 .iris {
   animation: iris 3s ease infinite;
   transform-origin: center top;
-  animation: move 4s linear infinite; }
+  animation: move 3s linear infinite; }
 
-.open_eyes {
-  animation: move 4s linear infinite; }
+.black_eyes {
+  animation: move 3s linear infinite; }
 
 body {
   background: #54e8dc;
