@@ -8,11 +8,11 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/meanjs/mean.git"
+    "url": "https://github.com/Tsuna-mi/owwwly-app"
   },
   "engines": {
-    "node": ">=0.12.0",
-    "npm": ">=2.0.0"
+    "node": "4.5.0",
+    "npm": "3.10.6"
   },
   "scripts": {
     "update": "npm update && npm prune && bower install --allow-root && bower prune --allow-root",
