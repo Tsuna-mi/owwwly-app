@@ -18,18 +18,9 @@
   .headernav .dropdown-menu a {
     color: rgba(255, 255, 255, 0.5); }
     .headernav .dropdown-menu a:hover, .headernav .dropdown-menu a:active {
-      background-image: -webkit-linear-gradient(top, #dedede 0%, #e8e8e8 100%);
       background-image: linear-gradient(to bottom, #dedede 0%, #e8e8e8 100%);
       font-weight: 500;
       color: #5f9ea0; }
-
-@-webkit-keyframes stars1 {
-  0% {
-    opacity: 0; }
-  15%, 70% {
-    opacity: 1; }
-  85%, 100% {
-    opacity: 0; } }
 
 @keyframes stars1 {
   0% {
@@ -37,14 +28,6 @@
   15%, 70% {
     opacity: 1; }
   85%, 100% {
-    opacity: 0; } }
-
-@-webkit-keyframes stars2 {
-  0%, 10% {
-    opacity: 0; }
-  25%, 85% {
-    opacity: 1; }
-  100% {
     opacity: 0; } }
 
 @keyframes stars2 {
@@ -56,77 +39,41 @@
     opacity: 0; } }
 
 .stars1 {
-  -webkit-animation: stars1 5s ease infinite;
-          animation: stars1 5s ease infinite; }
+  animation: stars1 5s ease infinite; }
 
 .stars2 {
-  -webkit-animation: stars2 5s ease infinite;
-          animation: stars2 5s ease infinite; }
-
-@-webkit-keyframes iris {
-  0% {
-    -webkit-transform: scale(1, 1);
-            transform: scale(1, 1); }
-  50% {
-    -webkit-transform: scale(1, 1.5);
-            transform: scale(1, 1.5); }
-  100% {
-    -webkit-transform: scale(1, 1);
-            transform: scale(1, 1); } }
+  animation: stars2 5s ease infinite; }
 
 @keyframes iris {
   0% {
-    -webkit-transform: scale(1, 1);
-            transform: scale(1, 1); }
+    transform: scale(1, 1); }
   50% {
-    -webkit-transform: scale(1, 1.5);
-            transform: scale(1, 1.5); }
+    transform: scale(1, 1.5); }
   100% {
-    -webkit-transform: scale(1, 1);
-            transform: scale(1, 1); } }
-
-@-webkit-keyframes move {
-  0% {
-    -webkit-transform: translate(-5px, -1px);
-            transform: translate(-5px, -1px); }
-  50% {
-    -webkit-transform: translate(7px, 0);
-            transform: translate(7px, 0); }
-  100% {
-    -webkit-transform: translate(-5px, -1px);
-            transform: translate(-5px, -1px); } }
+    transform: scale(1, 1); } }
 
 @keyframes move {
   0% {
-    -webkit-transform: translate(-5px, -1px);
-            transform: translate(-5px, -1px); }
+    transform: translate(-5px, -1px); }
   50% {
-    -webkit-transform: translate(7px, 0);
-            transform: translate(7px, 0); }
+    transform: translate(7px, 0); }
   100% {
-    -webkit-transform: translate(-5px, -1px);
-            transform: translate(-5px, -1px); } }
+    transform: translate(-5px, -1px); } }
 
 .iris {
-  -webkit-animation: iris 3s ease infinite;
-          animation: iris 3s ease infinite;
-  -webkit-transform-origin: center top;
-          transform-origin: center top;
-  -webkit-animation: move 3s linear infinite;
-          animation: move 3s linear infinite; }
+  animation: iris 3s ease infinite;
+  transform-origin: center top;
+  animation: move 3s linear infinite; }
 
 .black_eyes {
-  -webkit-animation: move 3s linear infinite;
-          animation: move 3s linear infinite; }
+  animation: move 3s linear infinite; }
 
 body {
   background: #54e8dc;
-  background: -webkit-linear-gradient(315deg, #54e8dc 0%, #54e8dc 0%, #f1e767 33%, #f0e568 41%, #feb645 61%, #fa762f 100%) fixed;
   background: linear-gradient(135deg, #54e8dc 0%, #54e8dc 0%, #f1e767 33%, #f0e568 41%, #feb645 61%, #fa762f 100%) fixed;
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#54e8dc', endColorstr='#fa762f', GradientType=1 ); }
 
 .index {
-  background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px), -webkit-linear-gradient(left, rgba(255, 255, 255, 0.1) 1px, transparent 1px), -webkit-linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px), -webkit-linear-gradient(left, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
   background-image: linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px), linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
   background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px;
   background-position: -2px -2px, -2px -2px, -1px -1px, -1px -1px;
@@ -305,8 +252,6 @@ body {
 html, body, .index, .indexcontainer {
   width: 100%;
   height: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   font-family: roboto, helvetica, sans-serif; }
 
@@ -319,10 +264,6 @@ html, body, .index, .indexcontainer {
 body {
   margin: 0;
   padding: 10px 25px; }
-  body::-moz-selection {
-    background: #ffa500 !important;
-    color: #fff;
-    text-shadow: 1px 1px #fff; }
   body::selection {
     background: #ffa500 !important;
     color: #fff;
@@ -339,7 +280,6 @@ body {
   padding-right: 15px; }
 
 .header {
-  background-image: -webkit-linear-gradient(top, #5f2e84 35%, #333 100%);
   background-image: linear-gradient(to bottom, #5f2e84 35%, #333 100%); }
 
 .page-header {
@@ -361,18 +301,12 @@ body {
 
 /*logo svg OWWWLY*/
 .flex-container {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   height: 100%;
   padding: 0;
   margin: 0;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center; }
+  align-items: center;
+  justify-content: center; }
   .flex-container .logo {
     margin: 0 auto; }
     .flex-container .logo svg {

@@ -40,6 +40,8 @@
 
 .social {
   -webkit-transition-duration: 0.4s;
+  -moz-transition-duration: 0.4s;
+  -o-transition-duration: 0.4s;
   transition-duration: 0.4s; }
 
 .social:hover {
