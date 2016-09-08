@@ -4,7 +4,7 @@ module.exports = {
   ],
   rules: {
     camelcase: 0,
-    'comma-dangle': ['error', 'never'],
+    'comma-dangle': [0, 'never'],
     'comma-spacing': [2, { before: false, after: true }],
     'consistent-return': 0,
     curly: 0,

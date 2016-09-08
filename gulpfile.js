@@ -294,7 +294,7 @@ gulp.task('templatecache', function () {
 // Mocha tests task
 gulp.task('mocha', function (done) {
   // Open mongoose connections
-  var mongoose = require('./config/lib/mongoose.js');
+  var mongoose = require('./config/lib/mongoose.js'); // eslint-disable-line global-require
   var testSuites = changedTestFiles.length ? changedTestFiles : testAssets.tests.server;
   var error;
 
@@ -324,7 +324,7 @@ gulp.task('mocha', function (done) {
 // Karma test runner task
 gulp.task('karma', function (done) {
   new KarmaServer({
-    configFile: __dirname + '/karma.conf.js',
+    configFile: __dirname + '/karma.conf.js',  // eslint-disable-line no-path-concat
     singleRun: true
   }, done).start();
 });
@@ -332,7 +332,7 @@ gulp.task('karma', function (done) {
 // Drops the MongoDB database, used in e2e testing
 gulp.task('dropdb', function (done) {
   // Use mongoose configuration
-  var mongoose = require('./config/lib/mongoose.js');
+  var mongoose = require('./config/lib/mongoose.js'); // eslint-disable-line global-require
 
   mongoose.connect(function (db) {
     db.connection.db.dropDatabase(function (err) {
