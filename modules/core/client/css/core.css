@@ -204,14 +204,14 @@ body {
   padding: 5px 20px 20px;
   background: rgba(255, 255, 255, 0.3);
   border-radius: 15px;
-  min-height: 400px; }
+  min-height: 450px; }
   .event-card a {
     color: #fff; }
     .event-card a h3 {
       color: #ffffff;
       text-shadow: tomato 1px 0 5px; }
     .event-card a img {
-      max-width: 97%;
+      max-width: 99%;
       margin: 20px auto;
       background-color: white;
       padding: 8px;
@@ -242,7 +242,7 @@ body {
   .event-card.single p strong {
     color: tomato; }
   .event-card.single img {
-    max-width: 97%;
+    max-width: 99%;
     margin: 0 auto;
     margin-bottom: 40px;
     background-color: white;

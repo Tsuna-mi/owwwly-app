@@ -9,7 +9,7 @@
           <h3 ng-bind="board.title"></h3>
           <img class="img-full img-responsive" ng-if="!board.eventImage" ng-src="modules/boards/client/img/board.jpg" alt="{{board.title}} event picture" />
         </a>
-        <p ng-if="board.type"><strong>Type Event: </strong>{{board.type}}</p>
+         <p class="capitalize"><strong>Type Event: </strong>{{board.category}}</p>
         <p ng-if="board.description"><strong>What? </strong>{{board.description}}</p>
         <p ng-if="board.date || board.time"><strong>When? </strong>{{board.date | date:'d MMM y'}} · {{board.time | date: 'HH:mm'}}</p>
         <p ng-if="board.city"><strong>Where? </strong>{{board.city}}</p>
