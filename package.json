@@ -15,7 +15,19 @@
     "npm": "3.10.6"
   },
   "scripts": {
-    "start": "grunt prod"
+    "update": "npm update && npm prune && bower install --allow-root && bower prune --allow-root",
+    "start": "grunt prod",
+    "start:prod": "gulp prod",
+    "start:debug": "gulp debug",
+    "gulp": "gulp",
+    "lint": "gulp lint",
+    "test": "gulp test",
+    "test:server": "gulp test:server",
+    "test:server:watch": "gulp test:server:watch",
+    "test:client": "gulp test:client",
+    "test:e2e": "gulp test:e2e",
+    "postinstall": "bower install --allow-root && bower prune --allow-root",
+    "generate-ssl-certs": "scripts/generate-ssl-certs.sh"
   },
   "dependencies": {
     "acl": "~0.4.9",
