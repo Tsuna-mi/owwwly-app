@@ -15,9 +15,9 @@
         <p ng-if="board.city"><strong>Where? </strong>{{board.city}}</p>
         <a class="ext" ng-if="board.url" ng-href="{{ board.url }}" target="_blank">Link</a>
         <small>
-          Created on <span data-ng-bind="board.created | date:'d MMM y'"></span> by 
+          Created on <span data-ng-bind="board.created | date:'d MMM y'"></span><!--  by 
           <span ng-if="board.user" data-ng-bind="vm.authentication.user.displayName"></span>
-          <span ng-if="!board.user">Deleted User</span>
+          <span ng-if="!board.user">Deleted User</span> -->
         </small>
       </div>
       <div class="alert alert-warning text-center" ng-if="vm.boards.$resolved && !vm.boards.length">
